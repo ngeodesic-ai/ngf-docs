@@ -1,22 +1,21 @@
-# Read the Docs configuration file for Sphinx projects
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
-
-# Required
+# .readthedocs.yaml
 version: 2
-sphinx:
-  # Path to your Sphinx configuration file.
-  configuration: docs/conf.py
 
-# Set the OS, Python version and other tools you might need
 build:
   os: ubuntu-22.04
   tools:
     python: "3.12"
-    # You can also specify other tool versions:
-    # nodejs: "20"
-    # rust: "1.70"
-    # golang: "1.20"
   apt_packages:
     - libgmp-dev
     - libmpfr-dev
     - libmpc-dev
+
+sphinx:
+  configuration: docs/conf.py   # or "conf.py" if your conf.py is at repo root
+
+python:
+  install:
+    - method: pip
+      path: .                   # if you have a Python package; remove if not
+    - requirements: docs/requirements.txt
+
