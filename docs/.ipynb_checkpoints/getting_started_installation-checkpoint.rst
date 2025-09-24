@@ -1,6 +1,6 @@
-.. _installation:
+.. _getting-started-installation:
 
-Installation
+Getting Started - Installation
 ==============================
 
 You can install the core framework and tooling with pip:

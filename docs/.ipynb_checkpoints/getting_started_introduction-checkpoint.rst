@@ -1,6 +1,6 @@
 .. _getting-started-introduction:
 
-Introduction
+Getting Started - Introduction
 ==============================
 
 Welcome to the **ngeodesic / micro-lm** documentation.
@@ -18,14 +18,3 @@ Our first pilots are:
 
 If you are a researcher, developer, or just curious about deterministic AI reasoning,
 this guide will help you get started quickly.
-
-
-.. toctree::
-    :maxdepth: 1
-    :hidden:
-    :caption: Getting Started
-
-    Home <self>      
-    installation
-    quickstart
-    legal

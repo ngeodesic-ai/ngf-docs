@@ -20,9 +20,7 @@
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Uniswap V2" href="../uniswapv2/index.html" />
-    <link rel="prev" title="Uniswap V2" href="univ2_math.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,79 +41,9 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="univ2_math.html">Uniswap V2</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap V3</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#(1a)-Swap:-dy--&gt;-dx">(1a) Swap: dy -&gt; dx</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Perform-dy--&gt;-dx-swap-using-dervation">Perform dy -&gt; dx swap using dervation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Perform-dy--&gt;-dx-swap-using-uniswappy">Perform dy -&gt; dx swap using uniswappy</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#(1b)-Swap:-dx--&gt;-dy">(1b) Swap: dx -&gt; dy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Perform-dx--&gt;-dy-swap-using-dervation">Perform dx -&gt; dy swap using dervation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#(2)-Double-sided-withdrawal">(2) Double-sided withdrawal</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Calculate-withdrawal-using-derivation">Calculate withdrawal using derivation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Perform-withdrawal-using-uniswappy">Perform withdrawal using uniswappy</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#(3)-Double-sided-deposit">(3) Double-sided deposit</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Calculate-deposit-using-derivation">Calculate deposit using derivation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Perform-deposit-using-uniswappy">Perform deposit using uniswappy</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#(4a)-Single-sided-withdrawal:-dx">(4a) Single-sided withdrawal: dx</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Perform-single-sided-withdrawal-using-uniswappy">Perform single-sided withdrawal using uniswappy</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#(4b)-Single-sided-withdrawal:-dy">(4b) Single-sided withdrawal: dy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Perform single-sided withdrawal using uniswappy</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../uniswapv2/index.html">Uniswap V2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../uniswapv3/index.html">Uniswap V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/univ2_sim.html">Uniswap V2 Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/order_book.html">Uniswap V3 Order Book</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/imp_loss.html">Impermanent Loss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/fsm.html">Finite State Machine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/simple_tree_pt1.html">Simple Uni V2 Tree (Part 1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/simple_tree_pt2.html">Simple Uni V2 Tree (Part 2)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Onchain</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/price_threshold_swap.html">Price Agent</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/tvl_based_liquidity.html">Liquidity Exit Agent</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/volume_spike_notifier.html">Volume Spike Agent</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/impermanent_loss.html">Impermanent Loss Agent</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/pool_events.html">Pool Events</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/testnet_sim_univ2.html">Solidity Script Interfacing</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv2.html">Uniswap V2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv3.html">Uniswap V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../primitive_balancer.html">Balancer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../primitive_stableswap.html">StableSwap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing &amp; Patents</a></li>
 </ul>
 
         </div>
@@ -717,10 +645,7 @@ Gross Liquidity: 31606.937511796754
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="univ2_math.html" class="btn btn-neutral float-left" title="Uniswap V2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../uniswapv2/index.html" class="btn btn-neutral float-right" title="Uniswap V2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

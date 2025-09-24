@@ -1,24 +1,24 @@
-Installation
-===============
-
 .. _installation:
 
-Must first install gmpy2 python package to handle the precision within the StableSwap protocol (requires CPython 3.7 or above). To install the latest release with pip:
+Installation
+==============================
 
-.. code-block:: console
+You can install the core framework and tooling with pip:
 
-    pip install gmpy2
-    
-Also, in many cases will need to have required libraries (GMP, MPFR and MPC) already installed on your system, see `gmpy2 installation docs <https://gmpy2.readthedocs.io/en/latest/install.html>`_ for more info. Once setup, install the latest release of DeFiPy with pip:
+.. code-block:: bash
 
-.. code-block:: console
+    # Install the NGF rails package
+    pip install ngeodesic
 
-    git clone https://github.com/defipy-devs/defipy
-    cd path/to/directory/defipy
-    pip install .
-    
-or 
+    # Install the micro-LM tooling package
+    pip install micro-lm
 
-.. code-block:: console
+For development (recommended), install from source:
 
-    pip install DeFiPy
+.. code-block:: bash
+
+    git clone https://github.com/ngeodesic-ai/ngeodesic.git
+    cd ngeodesic && pip install -e .
+
+    git clone https://github.com/ngeodesic-ai/micro-lm.git
+    cd micro-lm && pip install -e .
