@@ -17,8 +17,9 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = "ngeodesic.ai"
+release = "0.1"
 copyright = "2022, Read the Docs core team"
-author = "Read the Docs core team"
+author = "Ian Moore"
 html_show_sphinx = False
 
 
@@ -75,7 +76,7 @@ html_theme = "sphinx_rtd_theme"
 # https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#theme-options 
 
 html_theme_options = {
-    "logo_only": True,
+    "logo_only": False,
     "style_nav_header_background": "#283D5F",
     "navigation_depth": 4,
     "collapse_navigation": True,
