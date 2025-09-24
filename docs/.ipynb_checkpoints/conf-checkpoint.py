@@ -73,18 +73,20 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 html_theme = "sphinx_rtd_theme"
 
 # https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#theme-options 
-html_theme_options = {  
-    'logo_only': True,
-    'style_nav_header_background': '#283D5F',
-    'navigation_depth': 4, 
-    'collapse_navigation': True,
-#    'collapse_navigation': False,  # Expand all nested items by default
-    'sticky_navigation': True    # Keep sidebar fixed while scrolling
-#    'navigation_depth': 4,        # Allow deeper nesting (default is 4)
+
+html_theme_options = {
+    "logo_only": True,
+    "style_nav_header_background": "#283D5F",
+    "navigation_depth": 4,
+    "collapse_navigation": True,
+    "sticky_navigation": True,
 }
 
+# Point at the file inside _static
+html_logo = "_static/ngeodesic_logo.png"
 
-html_logo = "ngeodesic_logo.png"
+# Ship static assets
+html_static_path = ["_static"]
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
