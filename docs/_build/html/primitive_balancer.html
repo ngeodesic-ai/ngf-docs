@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Balancer &mdash; ngeodesic.ai  documentation</title>
@@ -11,11 +11,9 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -29,8 +27,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #283D5F" >
-            <a href="index.html">
-            <img src="_static/ngeodesic_logo.png" class="logo" alt="Logo"/>
+            <a href="index.html" class="icon icon-home"> ngeodesic.ai
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -86,10 +83,67 @@
 <li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv2.html">Uniswap V2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv3.html">Uniswap V3</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Balancer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-manual_balancer">Constant Weighted Product Trading</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-balancerpy.vault">Vault</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-0">Quoting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-balancerpy.erc">Tokens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-manual_balancer">Constant Weighted Product Trading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual_balancer.BalancerExchange"><code class="docutils literal notranslate"><span class="pre">BalancerExchange</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.burn"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.burn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.exit_pool"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.exit_pool()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.exit_swap_extern_amount_out"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.exit_swap_extern_amount_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.exit_swap_pool_amount_in"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.exit_swap_pool_amount_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.get_amount_in"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.get_amount_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.get_amount_out"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.get_amount_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.get_price"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.get_price()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.get_reserve"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.get_reserve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.join_pool"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.join_pool()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.join_swap_extern_amount_in"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.join_swap_extern_amount_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.join_swap_pool_amount_out"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.join_swap_pool_amount_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.mint"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.mint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.summary"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.swap"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.swap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.swap_exact_amount_in"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.swap_exact_amount_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerExchange.swap_exact_amount_out"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.swap_exact_amount_out()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#manual_balancer.BalancerFactory"><code class="docutils literal notranslate"><span class="pre">BalancerFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerFactory.deploy"><code class="docutils literal notranslate"><span class="pre">BalancerFactory.deploy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerFactory.get_exchange"><code class="docutils literal notranslate"><span class="pre">BalancerFactory.get_exchange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.BalancerFactory.get_token"><code class="docutils literal notranslate"><span class="pre">BalancerFactory.get_token()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-balancerpy.vault">Vault</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#balancerpy.vault.BalancerVault"><code class="docutils literal notranslate"><span class="pre">BalancerVault</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.vault.BalancerVault.add_token"><code class="docutils literal notranslate"><span class="pre">BalancerVault.add_token()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.vault.BalancerVault.check_tkn"><code class="docutils literal notranslate"><span class="pre">BalancerVault.check_tkn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.vault.BalancerVault.get_balances"><code class="docutils literal notranslate"><span class="pre">BalancerVault.get_balances()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.vault.BalancerVault.get_bounds"><code class="docutils literal notranslate"><span class="pre">BalancerVault.get_bounds()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.vault.BalancerVault.get_denorm_weights"><code class="docutils literal notranslate"><span class="pre">BalancerVault.get_denorm_weights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.vault.BalancerVault.get_dict"><code class="docutils literal notranslate"><span class="pre">BalancerVault.get_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.vault.BalancerVault.get_name"><code class="docutils literal notranslate"><span class="pre">BalancerVault.get_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.vault.BalancerVault.get_names"><code class="docutils literal notranslate"><span class="pre">BalancerVault.get_names()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.vault.BalancerVault.get_norm_weights"><code class="docutils literal notranslate"><span class="pre">BalancerVault.get_norm_weights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.vault.BalancerVault.get_token"><code class="docutils literal notranslate"><span class="pre">BalancerVault.get_token()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.vault.BalancerVault.get_tokens"><code class="docutils literal notranslate"><span class="pre">BalancerVault.get_tokens()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-0">Quoting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual_balancer.CWPQuote"><code class="docutils literal notranslate"><span class="pre">CWPQuote</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.CWPQuote.get_amount_from_shares"><code class="docutils literal notranslate"><span class="pre">CWPQuote.get_amount_from_shares()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_balancer.CWPQuote.get_shares_from_amount"><code class="docutils literal notranslate"><span class="pre">CWPQuote.get_shares_from_amount()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-balancerpy.erc">Tokens</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#balancerpy.erc.ERC20"><code class="docutils literal notranslate"><span class="pre">ERC20</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.erc.ERC20.deposit"><code class="docutils literal notranslate"><span class="pre">ERC20.deposit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#balancerpy.erc.ERC20.transfer"><code class="docutils literal notranslate"><span class="pre">ERC20.transfer()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="primitive_stableswap.html">StableSwap</a></li>
@@ -120,231 +174,246 @@
            <div itemprop="articleBody">
              
   <section id="balancer">
-<h1>Balancer<a class="headerlink" href="#balancer" title="Permalink to this heading"></a></h1>
+<h1>Balancer<a class="headerlink" href="#balancer" title="Link to this heading"></a></h1>
 <section id="module-manual_balancer">
-<span id="constant-weighted-product-trading"></span><h2>Constant Weighted Product Trading<a class="headerlink" href="#module-manual_balancer" title="Permalink to this heading"></a></h2>
+<span id="constant-weighted-product-trading"></span><h2>Constant Weighted Product Trading<a class="headerlink" href="#module-manual_balancer" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">manual_balancer.</span></span><span class="sig-name descname"><span class="pre">BalancerExchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FactoryData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchg_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BalancerExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">manual_balancer.</span></span><span class="sig-name descname"><span class="pre">BalancerExchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory_struct</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchg_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange" title="Link to this definition"></a></dt>
 <dd><p>How Balancer calls liquidity pools and uses the constant weighted product automated market maker</p>
-<dl class="simple">
-<dt>self.factory_struct<span class="classifier">FactoryData</span></dt><dd><p>Factory data</p>
-</dd>
-<dt>self.exchg_struct<span class="classifier">BalancerExchangeData</span></dt><dd><p>Balancer exchange data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self.factory_struct</strong> (<em>FactoryData</em>) – Factory data</p></li>
+<li><p><strong>self.exchg_struct</strong> (<em>BalancerExchangeData</em>) – Balancer exchange data</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.burn">
-<span class="sig-name descname"><span class="pre">burn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shares</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_from</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.burn" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">burn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shares</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_from</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.burn" title="Link to this definition"></a></dt>
 <dd><p>Burn liquidity from token based on number of pool shares and amount of token</p>
-<dl class="simple">
-<dt>amt_tkn_out<span class="classifier">float</span></dt><dd><p>Amount of token requested for burn</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-<dt>_from<span class="classifier">str</span></dt><dd><p>User name/address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amt_tkn_out</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of token requested for burn</p></li>
+<li><p><strong>tkn_out</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Output token</p></li>
+<li><p><strong>_from</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – User name/address</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.exit_pool">
-<span class="sig-name descname"><span class="pre">exit_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_shares_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_from</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.exit_pool" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">exit_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_shares_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_from</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.exit_pool" title="Link to this definition"></a></dt>
 <dd><p>Remove liquidity via withdrawing shares amount for all assets within pool</p>
-<dl class="simple">
-<dt>amt_shares_out<span class="classifier">float</span></dt><dd><p>Amount of pool shares requested for exit</p>
-</dd>
-<dt>_from<span class="classifier">str</span></dt><dd><p>User name/address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amt_shares_out</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of pool shares requested for exit</p></li>
+<li><p><strong>_from</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – User name/address</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.exit_swap_extern_amount_out">
-<span class="sig-name descname"><span class="pre">exit_swap_extern_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.exit_swap_extern_amount_out" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">exit_swap_extern_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.exit_swap_extern_amount_out" title="Link to this definition"></a></dt>
 <dd><p>Remove liquidity via withdrawing shares amount for a single asset</p>
-<dl class="simple">
-<dt>amt_tkn_out<span class="classifier">float</span></dt><dd><p>Amount of token requested for withdrawal</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amt_tkn_out</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of token requested for withdrawal</p></li>
+<li><p><strong>tkn_out</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Output token</p></li>
+<li><p><strong>to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – User name/address</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.exit_swap_pool_amount_in">
-<span class="sig-name descname"><span class="pre">exit_swap_pool_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_shares_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.exit_swap_pool_amount_in" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">exit_swap_pool_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_shares_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.exit_swap_pool_amount_in" title="Link to this definition"></a></dt>
 <dd><p>Remove liquidity via withdrawing shares amount for a single asset</p>
-<dl class="simple">
-<dt>amt_shares_out<span class="classifier">float</span></dt><dd><p>Amount of pool shares requested for withdrawal</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amt_shares_out</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of pool shares requested for withdrawal</p></li>
+<li><p><strong>tkn_out</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Output token</p></li>
+<li><p><strong>to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – User name/address</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.get_amount_in">
-<span class="sig-name descname"><span class="pre">get_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.get_amount_in" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.get_amount_in" title="Link to this definition"></a></dt>
 <dd><p>Given some amount of an asset, quotes an equivalent amount of the other asset</p>
-<dl class="simple">
-<dt>amt_tkn_out<span class="classifier">float</span></dt><dd><p>Amount of token requested for quote</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amt_tkn_out</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of token requested for quote</p></li>
+<li><p><strong>tkn_out</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Input token</p></li>
+<li><p><strong>tkn_in</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Output token</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.get_amount_out">
-<span class="sig-name descname"><span class="pre">get_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.get_amount_out" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.get_amount_out" title="Link to this definition"></a></dt>
 <dd><p>Given some amount of an asset, quotes an equivalent amount of the other asset</p>
-<dl class="simple">
-<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of token requested for quote</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amt_tkn_in</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of token requested for quote</p></li>
+<li><p><strong>tkn_in</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Input token</p></li>
+<li><p><strong>tkn_out</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Output token</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.get_price">
-<span class="sig-name descname"><span class="pre">get_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opp_tkn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.get_price" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opp_tkn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.get_price" title="Link to this definition"></a></dt>
 <dd><p>Get price of select token in the exchange pair</p>
-<dl class="simple">
-<dt>base_tkn<span class="classifier">float</span></dt><dd><p>Base token request for price quote</p>
-</dd>
-<dt>opp_tkn<span class="classifier">ERC20</span></dt><dd><p>Denomination token of price quote</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base_tkn</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Base token request for price quote</p></li>
+<li><p><strong>opp_tkn</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Denomination token of price quote</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.get_reserve">
-<span class="sig-name descname"><span class="pre">get_reserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.get_reserve" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_reserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.get_reserve" title="Link to this definition"></a></dt>
 <dd><p>Get reserve amount of select token in the pool</p>
-<dl class="simple">
-<dt>token<span class="classifier">ERC20</span></dt><dd><p>ERC20 token</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>token</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – ERC20 token</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.join_pool">
-<span class="sig-name descname"><span class="pre">join_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vault</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#balancerpy.vault.BalancerVault" title="balancerpy.vault.BalancerVault.BalancerVault"><span class="pre">BalancerVault</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_shares_in</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.join_pool" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">join_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vault</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_shares_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.join_pool" title="Link to this definition"></a></dt>
 <dd><p>Initialize a Balancer pool, and add liquidity for all asset deposit</p>
-<dl class="simple">
-<dt>tkn_grvaultoup<span class="classifier">BalancerERC20Group</span></dt><dd><p>Group of ERC20 objects</p>
-</dd>
-<dt>amt_shares_in<span class="classifier">float</span></dt><dd><p>Amount of pool shares in</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tkn_grvaultoup</strong> (<em>BalancerERC20Group</em>) – Group of ERC20 objects</p></li>
+<li><p><strong>amt_shares_in</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of pool shares in</p></li>
+<li><p><strong>to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – User name/address</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.join_swap_extern_amount_in">
-<span class="sig-name descname"><span class="pre">join_swap_extern_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.join_swap_extern_amount_in" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">join_swap_extern_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.join_swap_extern_amount_in" title="Link to this definition"></a></dt>
 <dd><p>Add liquidity via depositing token amount for single asset deposit</p>
-<dl class="simple">
-<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of token coming in</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amt_tkn_in</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of token coming in</p></li>
+<li><p><strong>tkn_in</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Input token</p></li>
+<li><p><strong>to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – User name/address</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.join_swap_pool_amount_out">
-<span class="sig-name descname"><span class="pre">join_swap_pool_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_shares_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.join_swap_pool_amount_out" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">join_swap_pool_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_shares_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.join_swap_pool_amount_out" title="Link to this definition"></a></dt>
 <dd><p>Add liquidity via depositing shares amount for single asset deposit</p>
-<dl class="simple">
-<dt>amt_shares_in<span class="classifier">float</span></dt><dd><p>Amount of pool shares coming in</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amt_shares_in</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of pool shares coming in</p></li>
+<li><p><strong>tkn_in</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Input token</p></li>
+<li><p><strong>to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – User name/address</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.mint">
-<span class="sig-name descname"><span class="pre">mint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_shares</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.mint" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">mint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_shares</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.mint" title="Link to this definition"></a></dt>
 <dd><p>Update reserve amount for specific token in the pool</p>
-<dl class="simple">
-<dt>new_shares<span class="classifier">float</span></dt><dd><p>Amount of new pool shares requested for minting</p>
-</dd>
-<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Input token</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>new_shares</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of new pool shares requested for minting</p></li>
+<li><p><strong>amt_tkn_in</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Input token</p></li>
+<li><p><strong>tkn_in</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Output token</p></li>
+<li><p><strong>to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – User name/address</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.summary">
-<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.summary" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.summary" title="Link to this definition"></a></dt>
 <dd><p>Summarize current state of balancer liquidity pool</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.swap">
-<span class="sig-name descname"><span class="pre">swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_swap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_fee</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.swap" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_swap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_fee</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.swap" title="Link to this definition"></a></dt>
 <dd><p>Swap output token given input token</p>
-<dl class="simple">
-<dt>amt_out<span class="classifier">float</span></dt><dd><p>Amount of input token requested for swaping</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amt_out</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of input token requested for swaping</p></li>
+<li><p><strong>tkn_in</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Input token</p></li>
+<li><p><strong>tkn_out</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Output token</p></li>
+<li><p><strong>to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – User name/address</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.swap_exact_amount_in">
-<span class="sig-name descname"><span class="pre">swap_exact_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.swap_exact_amount_in" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">swap_exact_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.swap_exact_amount_in" title="Link to this definition"></a></dt>
 <dd><p>Swap output token given input token</p>
-<dl class="simple">
-<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of input token requested for swaping</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amt_tkn_in</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of input token requested for swaping</p></li>
+<li><p><strong>tkn_in</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Input token</p></li>
+<li><p><strong>tkn_out</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Output token</p></li>
+<li><p><strong>to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – User name/address</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerExchange.swap_exact_amount_out">
-<span class="sig-name descname"><span class="pre">swap_exact_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.swap_exact_amount_out" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">swap_exact_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerExchange.swap_exact_amount_out" title="Link to this definition"></a></dt>
 <dd><p>Swap input token given output token</p>
-<dl class="simple">
-<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of input token requested for swaping</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amt_tkn_in</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of input token requested for swaping</p></li>
+<li><p><strong>tkn_in</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Input token</p></li>
+<li><p><strong>tkn_out</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Output token</p></li>
+<li><p><strong>to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – User name/address</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -353,52 +422,63 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="manual_balancer.BalancerFactory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">manual_balancer.</span></span><span class="sig-name descname"><span class="pre">BalancerFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerFactory" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">manual_balancer.</span></span><span class="sig-name descname"><span class="pre">BalancerFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerFactory" title="Link to this definition"></a></dt>
 <dd><p>Create Balancer liquidity pools for given token sets</p>
-<dl class="simple">
-<dt>self.name<span class="classifier">str</span></dt><dd><p>Token name</p>
-</dd>
-<dt>self.address<span class="classifier">str</span></dt><dd><p>Address name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self.name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Token name</p></li>
+<li><p><strong>self.address</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Address name</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerFactory.deploy">
-<span class="sig-name descname"><span class="pre">deploy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchg_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BalancerExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerFactory.deploy" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">deploy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchg_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerFactory.deploy" title="Link to this definition"></a></dt>
 <dd><p>Deploy a Balancer liquidity pool (LP) exchange</p>
-<dl class="simple">
-<dt>exchg_data<span class="classifier">BalancerExchangeData</span></dt><dd><p>Exchange initialization data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>exchg_data</strong> (<em>BalancerExchangeData</em>) – Exchange initialization data</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>exchange<span class="classifier">BalancerExchange</span></dt><dd><p>Newly created exchange that is also a LP token</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>exchange</strong> – Newly created exchange that is also a LP token</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#manual_balancer.BalancerExchange" title="manual_balancer.BalancerExchange">BalancerExchange</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerFactory.get_exchange">
-<span class="sig-name descname"><span class="pre">get_exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerFactory.get_exchange" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerFactory.get_exchange" title="Link to this definition"></a></dt>
 <dd><p>Get exchange from given token</p>
-<dl class="simple">
-<dt>token<span class="classifier">ERC20</span></dt><dd><p>receiving user address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>token</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – receiving user address</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>exchange<span class="classifier">BalancerExchange</span></dt><dd><p>exchange from mapped token</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>exchange</strong> – exchange from mapped token</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#manual_balancer.BalancerExchange" title="manual_balancer.BalancerExchange">BalancerExchange</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.BalancerFactory.get_token">
-<span class="sig-name descname"><span class="pre">get_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchange</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerFactory.get_token" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchange</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.BalancerFactory.get_token" title="Link to this definition"></a></dt>
 <dd><p>Get token set from exchange</p>
-<dl class="simple">
-<dt>exchange<span class="classifier">BalancerExchange</span></dt><dd><p>receiving user address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>exchange</strong> (<a class="reference internal" href="#manual_balancer.BalancerExchange" title="manual_balancer.BalancerExchange"><em>BalancerExchange</em></a>) – receiving user address</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>token<span class="classifier">ERC20 </span></dt><dd><p>token from mapped exchange</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>token</strong> – token from mapped exchange</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20">ERC20</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -407,140 +487,179 @@
 
 </section>
 <section id="module-balancerpy.vault">
-<span id="vault"></span><h2>Vault<a class="headerlink" href="#module-balancerpy.vault" title="Permalink to this heading"></a></h2>
+<span id="vault"></span><h2>Vault<a class="headerlink" href="#module-balancerpy.vault" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">balancerpy.vault.</span></span><span class="sig-name descname"><span class="pre">BalancerVault</span></span><a class="headerlink" href="#balancerpy.vault.BalancerVault" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">balancerpy.vault.</span></span><span class="sig-name descname"><span class="pre">BalancerVault</span></span><a class="headerlink" href="#balancerpy.vault.BalancerVault" title="Link to this definition"></a></dt>
 <dd><p>Create Balancer vault for pool token management</p>
-<dl class="simple">
-<dt>self.tkns<span class="classifier">list</span></dt><dd><p>List of ERC20 tokens within vault</p>
-</dd>
-<dt>self.tkn_dic<span class="classifier">dictionary</span></dt><dd><p>Dictionary of ERC20 tokens within vault referenced by token name</p>
-</dd>
-<dt>self.tkn_denorm_wts<span class="classifier">dictionary</span></dt><dd><p>Dictionary of denormalization weights referenced by token name</p>
-</dd>
-<dt>self.tkn_bounds<span class="classifier">dictionary</span></dt><dd><p>Dictionary of booleans (indicating token bound) referenced by token name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self.tkns</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a>) – List of ERC20 tokens within vault</p></li>
+<li><p><strong>self.tkn_dic</strong> (<em>dictionary</em>) – Dictionary of ERC20 tokens within vault referenced by token name</p></li>
+<li><p><strong>self.tkn_denorm_wts</strong> (<em>dictionary</em>) – Dictionary of denormalization weights referenced by token name</p></li>
+<li><p><strong>self.tkn_bounds</strong> (<em>dictionary</em>) – Dictionary of booleans (indicating token bound) referenced by token name</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault.add_token">
-<span class="sig-name descname"><span class="pre">add_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tkn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20.ERC20"><span class="pre">ERC20</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.add_token" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.add_token" title="Link to this definition"></a></dt>
 <dd><p>Deploy a Balancer liquidity pool (LP) exchange</p>
-<dl class="simple">
-<dt>tkn<span class="classifier">ERC20</span></dt><dd><p>ERC20 token</p>
-</dd>
-<dt>weight<span class="classifier">float</span></dt><dd><p>Denormalized weight in pool</p>
-</dd>
-<dt>bound<span class="classifier">boolean</span></dt><dd><p>Indicator of whether token is bound to pool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tkn</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – ERC20 token</p></li>
+<li><p><strong>weight</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Denormalized weight in pool</p></li>
+<li><p><strong>bound</strong> (<em>boolean</em>) – Indicator of whether token is bound to pool</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault.check_tkn">
-<span class="sig-name descname"><span class="pre">check_tkn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.check_tkn" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">check_tkn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.check_tkn" title="Link to this definition"></a></dt>
 <dd><p>Check if ERC20 token is in vault</p>
-<dl class="simple">
-<dt>tkn<span class="classifier">ERC20</span></dt><dd><p>ERC20 token</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tkn</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – ERC20 token</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>contains<span class="classifier">boolean</span></dt><dd><p>Indicator of whether token is contained in vault</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>contains</strong> – Indicator of whether token is contained in vault</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault.get_balances">
-<span class="sig-name descname"><span class="pre">get_balances</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_balances" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_balances</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_balances" title="Link to this definition"></a></dt>
 <dd><p>Get dictionary of token balances referened by token name</p>
-<dl class="simple">
-<dt>tkn_balances<span class="classifier">dict</span></dt><dd><p>Dictionary of token balances</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tkn_balances</strong> – Dictionary of token balances</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault.get_bounds">
-<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_bounds" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_bounds" title="Link to this definition"></a></dt>
 <dd><p>Get dictionary of token bounds referened by token name</p>
-<dl class="simple">
-<dt>norm_wts_dict<span class="classifier">dict</span></dt><dd><p>Dictionary of token bounds indicating whether token is bound to pool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>norm_wts_dict</strong> – Dictionary of token bounds indicating whether token is bound to pool</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault.get_denorm_weights">
-<span class="sig-name descname"><span class="pre">get_denorm_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_denorm_weights" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_denorm_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_denorm_weights" title="Link to this definition"></a></dt>
 <dd><p>get_norm_weights</p>
 <p>Get dictionary of token denormalized weights referened by token name</p>
-<dl class="simple">
-<dt>norm_wts_dict<span class="classifier">dict</span></dt><dd><p>Dictionary of token denormalized weights</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>norm_wts_dict</strong> – Dictionary of token denormalized weights</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault.get_dict">
-<span class="sig-name descname"><span class="pre">get_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_dict" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_dict" title="Link to this definition"></a></dt>
 <dd><p>Get dictionary of tokens referened by token name</p>
-<dl class="simple">
-<dt>tkn_dict<span class="classifier">dict</span></dt><dd><p>Dictionary of tokens</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tkn_dict</strong> – Dictionary of tokens</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault.get_name">
-<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_name" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_name" title="Link to this definition"></a></dt>
 <dd><p>Get token names</p>
-<dl class="simple">
-<dt>tkn_nms<span class="classifier">str</span></dt><dd><p>Token names delimited by hyphen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tkn_nms</strong> – Token names delimited by hyphen</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault.get_names">
-<span class="sig-name descname"><span class="pre">get_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_names" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_names" title="Link to this definition"></a></dt>
 <dd><p>Get token string names</p>
-<dl class="simple">
-<dt>tkn_nms<span class="classifier">list</span></dt><dd><p>Token string names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tkn_nms</strong> – Token string names</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault.get_norm_weights">
-<span class="sig-name descname"><span class="pre">get_norm_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_norm_weights" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_norm_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_norm_weights" title="Link to this definition"></a></dt>
 <dd><p>Get dictionary of token normalized weights referened by token name</p>
-<dl class="simple">
-<dt>norm_wts_dict<span class="classifier">dict</span></dt><dd><p>Dictionary of token normalized weights</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>norm_wts_dict</strong> – Dictionary of token normalized weights</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault.get_token">
-<span class="sig-name descname"><span class="pre">get_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tkn_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_token" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tkn_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_token" title="Link to this definition"></a></dt>
 <dd><p>Get token from vault given its name symbol</p>
-<dl class="simple">
-<dt>tkn_name<span class="classifier">str</span></dt><dd><p>Token name symbol</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tkn_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Token name symbol</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>tkn<span class="classifier">ERC20</span></dt><dd><p>Retrieved ERC20 token</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>tkn</strong> – Retrieved ERC20 token</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20">ERC20</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault.get_tokens">
-<span class="sig-name descname"><span class="pre">get_tokens</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_tokens" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_tokens</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.vault.BalancerVault.get_tokens" title="Link to this definition"></a></dt>
 <dd><p>Get list of tokens</p>
-<dl class="simple">
-<dt>tkns<span class="classifier">list</span></dt><dd><p>List of tokens</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tkns</strong> – List of tokens</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -549,43 +668,49 @@
 
 </section>
 <section id="module-0">
-<span id="quoting"></span><h2>Quoting<a class="headerlink" href="#module-0" title="Permalink to this heading"></a></h2>
+<span id="quoting"></span><h2>Quoting<a class="headerlink" href="#module-0" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="manual_balancer.CWPQuote">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">manual_balancer.</span></span><span class="sig-name descname"><span class="pre">CWPQuote</span></span><a class="headerlink" href="#manual_balancer.CWPQuote" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">manual_balancer.</span></span><span class="sig-name descname"><span class="pre">CWPQuote</span></span><a class="headerlink" href="#manual_balancer.CWPQuote" title="Link to this definition"></a></dt>
 <dd><p>Constant weighted product liquidity pool token quotes (ie, price, reserve and liquidity)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.CWPQuote.get_amount_from_shares">
-<span class="sig-name descname"><span class="pre">get_amount_from_shares</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_shares_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.CWPQuote.get_amount_from_shares" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_amount_from_shares</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_shares_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.CWPQuote.get_amount_from_shares" title="Link to this definition"></a></dt>
 <dd><p>Get amount of token reserve, given an amount of input liquidity pool shares</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lp</strong> (<a class="reference internal" href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange" title="uniswappy.cpt.exchg.UniswapExchange"><em>UniswapExchange</em></a>) – Uniswap LP</p></li>
+<li><p><strong>tkn</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Token asset from CWPT set</p></li>
+<li><p><strong>amount_shares_in</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of input shares</p></li>
+</ul>
 </dd>
-<dt>tkn: ERC20</dt><dd><p>Token asset from CWPT set</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>amt_out</strong> – Amount of token reserve</p>
 </dd>
-<dt>amount_shares_in: float</dt><dd><p>Amount of input shares</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>amt_out: float</dt><dd><p>Amount of token reserve</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="manual_balancer.CWPQuote.get_shares_from_amount">
-<span class="sig-name descname"><span class="pre">get_shares_from_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.CWPQuote.get_shares_from_amount" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_shares_from_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_balancer.CWPQuote.get_shares_from_amount" title="Link to this definition"></a></dt>
 <dd><p>Get amount of liquidity pool shares, given an amount of input token</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lp</strong> (<a class="reference internal" href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange" title="uniswappy.cpt.exchg.UniswapExchange"><em>UniswapExchange</em></a>) – Uniswap LP</p></li>
+<li><p><strong>tkn</strong> (<a class="reference internal" href="#balancerpy.erc.ERC20" title="balancerpy.erc.ERC20"><em>ERC20</em></a>) – Token asset from CWPT set</p></li>
+<li><p><strong>amount_in</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Amount of input token</p></li>
+</ul>
 </dd>
-<dt>tkn: ERC20</dt><dd><p>Token asset from CWPT set</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>lp_amt</strong> – Amount of liquidity pool shares</p>
 </dd>
-<dt>amount_in: float</dt><dd><p>Amount of input token</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>lp_amt: float</dt><dd><p>Amount of liquidity pool shares</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -594,39 +719,44 @@
 
 </section>
 <section id="module-balancerpy.erc">
-<span id="tokens"></span><h2>Tokens<a class="headerlink" href="#module-balancerpy.erc" title="Permalink to this heading"></a></h2>
+<span id="tokens"></span><h2>Tokens<a class="headerlink" href="#module-balancerpy.erc" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="balancerpy.erc.ERC20">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">balancerpy.erc.</span></span><span class="sig-name descname"><span class="pre">ERC20</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.erc.ERC20" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">balancerpy.erc.</span></span><span class="sig-name descname"><span class="pre">ERC20</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.erc.ERC20" title="Link to this definition"></a></dt>
 <dd><p>ERC20 token</p>
-<dl class="simple">
-<dt>self.token_name<span class="classifier">str</span></dt><dd><p>Token name</p>
-</dd>
-<dt>self.token_addr<span class="classifier">str</span></dt><dd><p>Token address</p>
-</dd>
-<dt>self.token_total<span class="classifier">float</span></dt><dd><p>Token holdings</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self.token_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Token name</p></li>
+<li><p><strong>self.token_addr</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Token address</p></li>
+<li><p><strong>self.token_total</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Token holdings</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.erc.ERC20.deposit">
-<span class="sig-name descname"><span class="pre">deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.erc.ERC20.deposit" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.erc.ERC20.deposit" title="Link to this definition"></a></dt>
 <dd><p>Deposit token amount in</p>
-<dl class="simple">
-<dt>_from<span class="classifier">str</span></dt><dd><p>user address</p>
-</dd>
-<dt>value<span class="classifier">str</span></dt><dd><p>delta to add to total</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_from</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – user address</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – delta to add to total</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="balancerpy.erc.ERC20.transfer">
-<span class="sig-name descname"><span class="pre">transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.erc.ERC20.transfer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.erc.ERC20.transfer" title="Link to this definition"></a></dt>
 <dd><p>Transfer token amount out</p>
-<dl class="simple">
-<dt>_to<span class="classifier">str</span></dt><dd><p>user address</p>
-</dd>
-<dt>value<span class="classifier">str</span></dt><dd><p>delta to remove from total</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – user address</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – delta to remove from total</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Liquidity Exit Agent &mdash; ngeodesic.ai  documentation</title>
@@ -12,11 +12,9 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -32,8 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #283D5F" >
-            <a href="../index.html">
-            <img src="../_static/ngeodesic_logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html" class="icon icon-home"> ngeodesic.ai
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -121,13 +118,13 @@
            <div itemprop="articleBody">
              
   <section id="Liquidity-Exit-Agent">
-<h1>Liquidity Exit Agent<a class="headerlink" href="#Liquidity-Exit-Agent" title="Permalink to this heading"></a></h1>
+<h1>Liquidity Exit Agent<a class="headerlink" href="#Liquidity-Exit-Agent" title="Link to this heading"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">TVLBasedLiquidityExitAgent</span></code> monitors a liquidity pool’s Total Value Locked (TVL) and automatically withdraws a user’s position when TVL falls below a specified threshold, mitigating risks like slippage or impermanent loss. It integrates DeFiPy’s RemoveLiquidity for exits and Web3Scout’s event feeds for real-time TVL updates, supporting off-chain testing and on-chain execution.</p>
 <ul class="simple">
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/defipy-docs/blob/main/docs/onchain/onchain/price_threshold_swap.ipynb">here</a></p></li>
 </ul>
 <section id="📘-Notable-Classes">
-<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Link to this heading"></a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.agents.config.TVLExitConfig</span></code></p>
@@ -304,7 +301,7 @@
 </div>
 </section>
 <section id="Setup-Agent">
-<h2>Setup Agent<a class="headerlink" href="#Setup-Agent" title="Permalink to this heading"></a></h2>
+<h2>Setup Agent<a class="headerlink" href="#Setup-Agent" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>

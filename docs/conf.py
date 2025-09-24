@@ -14,7 +14,6 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 
-
 # -- Project information -----------------------------------------------------
 
 project = "ngeodesic.ai"
@@ -24,16 +23,30 @@ html_show_sphinx = False
 
 
 # -- General configuration ---------------------------------------------------
-# -- General configuration
+
+html_theme = "furo"
+
+# Optional: make .md the default alongside .rst
+source_suffix = [".rst", ".md"]
+myst_enable_extensions = ["colon_fence", "deflist", "linkify"]
 
 extensions = [
-    "sphinx.ext.duration",
-    "sphinx.ext.doctest",
+    # Autodoc core must come first among autodoc-related extensions
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
+    "sphinx.ext.napoleon",          # if used, load before sphinx_autodoc_typehints
+    "sphinx_autodoc_typehints",     # listens to autodoc events
+
+    # General-purpose Sphinx bits
     "sphinx.ext.intersphinx",
+    "sphinx.ext.doctest",
+    "sphinx.ext.duration",
+
+    # Content formats
+    "myst_parser",
     "nbsphinx",
 ]
+
 
 intersphinx_mapping = {
     "rtd": ("https://docs.readthedocs.io/en/stable/", None),
