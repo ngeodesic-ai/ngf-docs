@@ -83,7 +83,8 @@ html_theme_options = {
 }
 
 # Point at the file inside _static
-html_logo = "_static/ngeodesic_logo.png"
+# html_logo = "_static/ngeodesic_logo.png"
+html_logo = None
 
 # Ship static assets
 html_static_path = ["_static"]
