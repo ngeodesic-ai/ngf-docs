@@ -11,10 +11,9 @@ build:
     - libmpc-dev
 
 sphinx:
-  configuration: docs/conf.py   # or "conf.py" if your conf.py is at repo root
+  configuration: docs/conf.py   # change if your conf.py is elsewhere
 
 python:
   install:
-    - method: pip
     - requirements: docs/requirements.txt
 
