@@ -16,6 +16,5 @@ sphinx:
 python:
   install:
     - method: pip
-      path: .                   # if you have a Python package; remove if not
     - requirements: docs/requirements.txt
 
