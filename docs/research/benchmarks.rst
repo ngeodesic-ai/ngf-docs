@@ -1,6 +1,6 @@
-.. _research-ngf-alpha-experiments:
+.. _research-ngf-alpha-benchmarks:
 
-NGF-Alpha Experiments
+Benchmarks
 =====================
 
 Overview

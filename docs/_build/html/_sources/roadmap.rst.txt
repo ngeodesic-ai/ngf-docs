@@ -9,14 +9,56 @@ The NGF + Micro‑LM ecosystem has completed **Tier‑1** (deterministic SBERT m
 and **Tier‑2** (SBERT + WDD auditors). The next phase extends into richer latents,
 new domains, and open theoretical questions.
 
-Tier-3: Sidecars with LLM Latents
----------------------------------
-- **Goal:** swap SBERT embeddings for **LLM hidden states** as the mapper input.  
-- **Challenge:** LLM latents are noisy, high‑variance, and context‑dependent.  
-- **Approach:** apply NGF rails (Warp → Detect → Denoise) to stabilize latent
-  manifolds, separating signal wells from diffuse activations.  
-- **Outcome:** broaden coverage beyond curated SBERT primitives while retaining
-  determinism and abstain guarantees.  
+
+Tier-0: Baseline Deterministic Rails (✔ Secured)
+------------------------------------------------
+- **Stock matched filter + parser** pipeline.  
+- Supports core DeFi primitives with deterministic abstain paths.  
+- Sandbox verified and benchmarked with stable execution.
+
+**Status:** ✅ Complete — foundation secured.
+
+---
+
+Tier-1: Micro-LM on SBERT Latents (✔ Secured)
+---------------------------------------------
+- Replace hashmap lookups with a **trained micro-LM encoder**.  
+- Train against **2–5k SBERT latent prompts**.  
+- Audit results to return ABSTAIN / PASS with auditable trace.  
+- Benchmark with full Stage-11 runner on DeFi suites (**1% hallucination / 0.98 F1 Score** across 8 primitives).  
+
+**Status:** ✅ Complete — MVP secured.
+
+---
+
+Tier-2: Incorporate WDD with SBERT Latents (✔ Secured)
+------------------------------------------------------
+The current release implements **Warp → Detect → Denoise (WDD)** on SBERT embeddings.
+
+**Core Features**
+- Deterministic mapper + verifier with abstain-first behavior.  
+- Handles both DeFi prompts (financial primitives) and ARC prompts (cognitive/aptitude tasks).  
+- Auditable traces: every PASS/ABSTAIN decision includes reasons + confidence.  
+- Stress-tested on SBERT latents: validated signal separation + denoising.  
+
+**Status:** ✅ Complete — WDD secured.  
+**Purpose:** **Community Edition**, deterministic & auditable safety (but scoped), SBERT + WDD — Apache 2.0.
+
+---
+
+Tier-3: LLM Latents + WDD (🔮 Future / Enterprise)
+--------------------------------------------------
+The end-goal is to extend WDD beyond SBERT into large language model hidden states.
+
+**Planned Features**
+- Swap SBERT latents for LLM internal latents.  
+- Apply WDD rails to noisy LLM embeddings → restore determinism.  
+- Package as a sidecar system: LLM provides fluency, micro-LM provides deterministic safety.  
+- Designed for enterprise use: auditability, compliance, SLAs.  
+
+**Status:** 🔮 Planning stage — not required for MVP, proprietary development path.  
+**Purpose:** **Enterprise Edition**: gold standard, LLM Latents + WDD — proprietary.
+
 
 Future Domains
 --------------

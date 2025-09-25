@@ -1,6 +1,6 @@
 .. _research-publications-patents:
 
-Publications & Patents
+Publications / Patents
 ======================
 
 Overview

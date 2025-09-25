@@ -1,6 +1,6 @@
 .. _concepts-ngf-rails:
 
-Warp → Detect → Denoise
+Deterministic AI Reasoning
 ============================================
 
 **NGF rails** implement the **WDD** pipeline to stabilize decisions and enforce safety.

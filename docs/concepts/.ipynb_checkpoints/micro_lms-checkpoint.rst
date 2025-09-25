@@ -1,11 +1,41 @@
 .. _concepts-micro-lms:
 
-Micro-LMs Explained
+Micro-LMs
 ===================
 
-**Micro-LMs** are lightweight, domain-specialized AI *sidecars* that run alongside
-large language models (LLMs) on **NGF rails** to turn natural language into
-**deterministic, auditable actions** with built-in **safety and abstain** guarantees.
+- **LLM = generalist**: broad knowledge, flexible language, but *stochastic and unsafe* for mission-critical execution.  
+- **micro-LM = specialist**: slim, deterministic, auditable, and **more accurate where it matters** (DeFi/Finance, Manufacturing & Robotics, Industrial Robotics, Supply Chain & Logistics, Energy & Grid Management, etc).
+
+
+LLMs vs. micro-LMs 
+-------------------
+
++-------------------------+-------------------------------------------------------------+-------------------------------------------------------------------+
+| Dimension               | LLMs (ChatGPT, Claude, Meta, Perplexity, etc.)              | **micro-LMs (ARC, DeFi)**                                         |
++=========================+=============================================================+===================================================================+
+| **Domain accuracy**     | Broad coverage, but DeFi primitives are not a training      | Mapper trained on 1k–5k usecase prompts (e.g., DeFi, ARC).        |
+|                         | focus. Accuracy drifts under phrasing changes.              | Benchmarked accuracy > 98% on 8 DeFi primitives; abstains         |
+|                         |                                                             | correctly when uncertain.                                         |
++-------------------------+-------------------------------------------------------------+-------------------------------------------------------------------+
+| **Determinism**         | Outputs vary run-to-run (sampling drift). Even              | Stage-11 NGF rails (Warp → Detect → Denoise) yield reproducible   |
+|                         | ``temperature=0`` doesn’t guarantee identical results.      | traces. Perturbation tests confirm stable decisions.              |
++-------------------------+-------------------------------------------------------------+-------------------------------------------------------------------+
+| **Safety / Policy       | Can be prompted with “stay under LTV 0.75,” but no hard     | Built-in verifiers: Loan-to-Value (LTV), Health Factor (HF),      |
+| enforcement**           | guarantees — may still propose unsafe actions.              | Oracle freshness. Unsafe paths always block or abstain.           |
++-------------------------+-------------------------------------------------------------+-------------------------------------------------------------------+
+| **Abstain behavior**    | Rarely abstains — tends to “make something up” even when    | Explicit abstain mode: non-exec prompts (balance checks, nonsense)| 
+|                         | uncertain.                                                  | → abstain with clear reason (``abstain_non_exec``).               |
++-------------------------+-------------------------------------------------------------+-------------------------------------------------------------------+
+| **Auditability**        | Opaque; no structured rationale.                            | Every run produces machine-readable artifacts: mapper score,      |
+|                         |                                                             | abstain reason, verifier tags, plan trace. Auditable for          |
+|                         |                                                             | compliance.                                                       |
++-------------------------+-------------------------------------------------------------+-------------------------------------------------------------------+
+| **Efficiency / Cost**   | 10s–100s of billions of params; inference is slow/expensive.| SBERT (~22M params) + lightweight classifier. Fast, cheap,        |
+|                         |                                                             | deployable in CI.                                                 |
++-------------------------+-------------------------------------------------------------+-------------------------------------------------------------------+
+| **Regulatory /          | Hard to certify (stochastic, unexplainable).                | Deterministic + auditable by design. Built for domains where      |
+| Compliance fit**        |                                                             | regulators demand safety.                                         |
++-------------------------+-------------------------------------------------------------+-------------------------------------------------------------------+
 
 Why Micro-LMs?
 --------------

@@ -1,4 +1,4 @@
-Licensing & Patents
+Licensing
 ===================
 
 📝 Legal Overview

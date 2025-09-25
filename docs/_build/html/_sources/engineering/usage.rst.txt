@@ -1,6 +1,6 @@
-.. _engineering-cli-usage:
+.. _engineering-usage:
 
-CLI Usage
+Usage
 =========
 
 Overview

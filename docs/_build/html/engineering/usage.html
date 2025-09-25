@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLI Usage &mdash; ngeodesic.ai 0.1 documentation</title>
+  <title>Usage &mdash; ngeodesic.ai 0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Testing &amp; Benchmarks" href="benchmarks.html" />
-    <link rel="prev" title="Repository Structure" href="repository_structure.html" /> 
+    <link rel="next" title="Repository Structure" href="repository_structure.html" />
+    <link rel="prev" title="Publications / Patents" href="../research/publications_patents.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,36 +40,24 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing &amp; Patents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licencing.html">Licensing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/micro_lms.html">Micro-LMs Explained</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/ngf_rails.html">Warp → Detect → Denoise</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/determinism_abstains.html">Determinism &amp; Abstains</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/tiers.html">Tiers 1-3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/micro_lms.html">Micro-LMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/ai_reasoning.html">Deterministic AI Reasoning</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Research</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../research/ngf.html">Noetic Geodesic Framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../research/current_threads.html">Current Research</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../research/experiments.html">NGF-Alpha Experiments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../research/publications_patents.html">Publications &amp; Patents</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Framework</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../framework/micro_lm_package.html">Domains</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../framework/ngeodesic_package.html">ngeodesic Python Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../framework/policy_verifiers.html">Policy &amp; Verifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../framework/stage11_rails.html">Stage-11 Rails in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/benchmarks.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/publications_patents.html">Publications / Patents</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="repository_structure.html">Repository Structure</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">CLI Usage</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#micro-defi">micro-defi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#micro-arc">micro-arc</a></li>
@@ -77,8 +65,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Testing &amp; Benchmarks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="integration_ngeodesic.html">Integration with ngeodesic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository_structure.html">Repository Structure</a></li>
 </ul>
 
         </div>
@@ -95,9 +82,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>CLI Usage</li>
+      <li>Usage</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/engineering/cli_usage.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/engineering/usage.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -105,8 +92,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="cli-usage">
-<span id="engineering-cli-usage"></span><h1>CLI Usage<a class="headerlink" href="#cli-usage" title="Link to this heading"></a></h1>
+  <section id="usage">
+<span id="engineering-usage"></span><h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>The <strong>micro-lm</strong> repository provides command‑line interfaces for running
@@ -183,8 +170,8 @@ and policy enforcement</strong> with minimal setup.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="repository_structure.html" class="btn btn-neutral float-left" title="Repository Structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="benchmarks.html" class="btn btn-neutral float-right" title="Testing &amp; Benchmarks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../research/publications_patents.html" class="btn btn-neutral float-left" title="Publications / Patents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="repository_structure.html" class="btn btn-neutral float-right" title="Repository Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

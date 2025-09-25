@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Roadmap" href="roadmap.html" />
-    <link rel="prev" title="Installation" href="installation.html" /> 
+    <link rel="prev" title="Introduction" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,42 +40,30 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#python-example">Python Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cli-example">CLI Example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing &amp; Patents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licencing.html">Licensing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="concepts/micro_lms.html">Micro-LMs Explained</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/ngf_rails.html">Warp → Detect → Denoise</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/determinism_abstains.html">Determinism &amp; Abstains</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/tiers.html">Tiers 1-3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/micro_lms.html">Micro-LMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/ai_reasoning.html">Deterministic AI Reasoning</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Research</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="research/ngf.html">Noetic Geodesic Framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="research/current_threads.html">Current Research</a></li>
-<li class="toctree-l1"><a class="reference internal" href="research/experiments.html">NGF-Alpha Experiments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="research/publications_patents.html">Publications &amp; Patents</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Framework</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="framework/micro_lm_package.html">Domains</a></li>
-<li class="toctree-l1"><a class="reference internal" href="framework/ngeodesic_package.html">ngeodesic Python Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="framework/policy_verifiers.html">Policy &amp; Verifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="framework/stage11_rails.html">Stage-11 Rails in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="research/benchmarks.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="research/publications_patents.html">Publications / Patents</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="engineering/usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="engineering/repository_structure.html">Repository Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="engineering/cli_usage.html">CLI Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="engineering/benchmarks.html">Testing &amp; Benchmarks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="engineering/integration_ngeodesic.html">Integration with ngeodesic</a></li>
 </ul>
 
         </div>
@@ -104,6 +92,25 @@
              
   <section id="quickstart">
 <span id="getting-started-quickstart"></span><h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading"></a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>You can install the core framework and tooling with pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the NGF rails package</span>
+pip<span class="w"> </span>install<span class="w"> </span>ngeodesic
+
+<span class="c1"># Install the micro-LM tooling package</span>
+pip<span class="w"> </span>install<span class="w"> </span>micro-lm
+</pre></div>
+</div>
+<p>For development (recommended), install from source:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ngeodesic-ai/ngeodesic.git
+<span class="nb">cd</span><span class="w"> </span>ngeodesic<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ngeodesic-ai/micro-lm.git
+<span class="nb">cd</span><span class="w"> </span>micro-lm<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
 <section id="python-example">
 <h2>Python Example<a class="headerlink" href="#python-example" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">micro_lm.core.runner</span> <span class="kn">import</span> <span class="n">run_micro</span>
@@ -150,7 +157,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="roadmap.html" class="btn btn-neutral float-right" title="Roadmap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
