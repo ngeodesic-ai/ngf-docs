@@ -26,19 +26,19 @@ commercial purposes — provided that attribution and license terms are followed
 ⚖️ Patent Grant
 ----------------
 
-Legal & Licensing
-=================
+**Summary**
 
-We want to be clear about how the project is licensed today and where it is headed.
+- **Tier-1 / Tier-2 (Community Edition):**  
+  Open-source under **Apache 2.0**. Includes WDD on SBERT embeddings.  
+  → Free to use, modify, and redistribute for research, prototyping, and early-stage applications.  
 
-**Tier-1 / Tier-2 (Community Edition)**  
-All code in this repository is licensed under **Apache 2.0**. This includes the implementations of the Warp → Detect → Denoise (WDD) pipeline on **SBERT embeddings**. These releases are intended for community adoption, rapid prototyping, and safe experimentation. You are free to use, modify, and share this code under the terms of Apache 2.0. Tier 2 is covered by the **Apache-2.0 patent license** and is **royalty-free, perpetual, and worldwide**, as long as you comply with Apache-2.0.
+- **Tier-3 (Enterprise Edition):**  
+  **Proprietary.** Applies WDD directly to large language model (LLM) latents.  
+  → Reserved for enterprise use, commercial licensing required.  
 
-**Tier-3 (Enterprise Edition)**  
-Work that applies WDD directly to **large language model (LLM) latents** is **not part of this repository**. That track remains proprietary and is being developed as a future enterprise product. Tier-3 embodies the full vision: fusing LLM fluency with micro-LM determinism. It will be available under separate commercial terms.
-
-**Patents**  
-The WDD method is protected by issued and pending patents. The Apache 2.0 license applies to the Tier-1/Tier-2 implementations published here. No rights are granted for embodiments outside this release (e.g. Tier-3 LLM integrations).
+- **Patents:**  
+  WDD and sidecar inventions are protected by issued/pending patents.  
+  The Apache patent grant applies only to Tier-1/Tier-2 implementations in this repository.
 
 ---
 
