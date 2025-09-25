@@ -3,38 +3,49 @@
 Benchmarks
 =====================
 
-Overview
---------
-**ngf-alpha** was the first research repository for exploring the **Noetic Geodesic
-Framework (NGF)**. It documented staged experiments that tested whether latent
-manifolds could be warped, detected, and denoised to produce **deterministic,
-reproducible reasoning**.
+Stage-11 introduced the breakthrough:
 
-The staged design allowed systematic exploration from toy settings to real latent
-spaces, gradually validating the Warp–Detect–Denoise (WDD) doctrine.
+- **Warp:** Embed latents into PCA(3) space, warp into a single dominant well.
+- **Detect:** Use matched filters with null calibration to identify the true well.
+- **Denoise:** Apply smoothing, phantom guards, and jitter averaging to suppress false wells.
 
-Early Prototypes
-----------------
-- **Stage 0–3 (Toy Spaces):**
-  - Operated in simple vector spaces (:math:`\mathbb{R}^4`, :math:`\mathbb{R}^9`).
-  - Tested geodesic shaping in low dimensions.
-  - Showed that introducing *semantic wells* could reduce trajectory variance.
+(Part A) Latent-ARC Results (n=100)
+-----------------------------------
 
-- **Stage 4–6 (Synthetic Trace Families):**
-  - Applied WDD logic to synthetic ARC‑like traces.
-  - Proved that matched filters with nulls/foils could separate valid routes
-    from noise.
-  - Early use of temporal smoothing to reduce decision instability.
++-------------------+-----------+-----------+--------+--------+---------+----------+
+| Model             | Exact Acc | Precision | Recall | F1     | Halluc. | Omission |
++===================+===========+===========+========+========+=========+==========+
+| Denoise (Stage 11)| **1.000** | 0.9977    | 0.9989 | 0.9983 | 0.0045  | 0.0023   |
++-------------------+-----------+-----------+--------+--------+---------+----------+
+| Geodesic (pre)    | 0.640     | 0.8450    | 1.0000 | 0.8980 | 0.1550  | 0.0000   |
++-------------------+-----------+-----------+--------+--------+---------+----------+
+| Stock baseline    | 0.490     | 0.8900    | 0.7767 | 0.7973 | 0.1100  | 0.2233   |
++-------------------+-----------+-----------+--------+--------+---------+----------+
 
-- **Stage 7–9 (Noisy External Latents):**
-  - Integrated SBERT embeddings and LLM hidden states.
-  - Demonstrated that warp alignment + detection thresholds could **stabilize**
-    mappings from NL prompts → task primitives.
+**Note (Part A):** Stock baseline approximates what you’d see if you used simple thresholds
+on LLM latents/logits without NGF’s Warp → Detect → Denoise.
 
-- **Stage 10–11 (Full NGF Rails):**
-  - Introduced the canonical Warp → Detect → Denoise sequence.
-  - Benchmarked robustness under perturbations (synonyms, paraphrases, jitter).
-  - Validated **abstain logic** as a principled alternative to misclassification.
+(Part B) LMM-HellaSwag Results (n=1000)
+---------------------------------------
+
++-------------------+--------+------------------+-------------+-----------------------+
+| Model             | F1     | ECE (Calibration)| Brier Score | Overconfidence > 0.70 |
++===================+========+==================+=============+=======================+
+| MaxWarp (Stage 11)| 0.35   | 0.080            | 0.743       | 1.2%                  |
++-------------------+--------+------------------+-------------+-----------------------+
+| Stock baseline    | 0.324  | 0.122            | 0.750       | 0.7%                  |
++-------------------+--------+------------------+-------------+-----------------------+
+| Change (Δ)        | +0.032 | -0.032           | -0.007      | +0.5%                 |
++-------------------+--------+------------------+-------------+-----------------------+
+
+.. figure:: /_static/stage11_well_compare.png
+   :alt: NGF Warped vs Flat Paths
+   :align: center
+   :scale: 25%
+
+   Fig 1. PCA-2 visualization of “semantic wells” (pre vs post warp) on GPT-2 (tap 9).
+
+
 
 Key Results → Micro-LMs
 -----------------------
@@ -59,10 +70,3 @@ Key Results → Micro-LMs
    - **ARC Micro‑LM** became the reasoning stress test.  
    - **DeFi Micro‑LM** became the production‑style demo with policy checks.
 
-Pointers & Further Reading
---------------------------
-- See the `ngf-alpha` repository for full experimental logs and staged designs.  
-- Stage‑11 experiments are particularly important: they introduced canonical
-  WDD rails and proved abstain determinism.  
-- For patent coverage, see **Warp–Detect–Denoise**, **Micro‑LM sidecars**, and
-  **trace manifold shaping** filings.  

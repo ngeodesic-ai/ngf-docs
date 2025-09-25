@@ -1,38 +1,73 @@
 .. _research-ngf:
 
-Noetic Geodesic Framework
-=========================================
+Noetic Geodesic Framework (Alpha)
+=================================
 
-Overview
---------
-The **Noetic Geodesic Framework (NGF)** is a geometric approach to deterministic AI
-reasoning. It reframes reasoning over **latent spaces** as geodesic traversals through
-**warped manifolds**, where semantic structure is enforced by energy wells. This lets
-us suppress hallucinations and enforce **stable, truth‑aligned reasoning** by shaping
-the geometry that models traverse.
+🚀 **The Noetic Geodesic Framework (NGF)** is a geometric approach to deterministic AI reasoning.  
+It reframes reasoning in latent space as geodesic traversals through warped manifolds, where semantic structure is enforced by energy wells.  
+This allows us to suppress hallucinations and enforce stable, truth-aligned reasoning.
 
-NGF operates at the *embedding* level, not the text level; it is pluggable into
-LLMs and encoders by intercepting and shaping their latent trajectories.
+NGF builds on two key pillars:
 
-.. admonition:: Key Idea
-   :class: tip
+- **Latent Vector Embeddings** — high-dimensional representations (used across modern AI, including LLMs).
+- **Warp → Detect → Denoise Doctrine (Stage 11)** — our pipeline that shapes these embeddings into deterministic geodesic trajectories.
 
-   Instead of fine‑tuning weights or prompt engineering, **NGF shapes the latent
-   manifold** so that trajectories follow **deterministic geodesics** toward
-   correct regions (semantic wells), and away from noise.
+LLMs vs Vector Embeddings
+-------------------------
 
-Origins & Motivation
+- **LLMs (Large Language Models):** Sequence models that operate on tokens, typically built on transformer architectures.  
+  They internally rely on vector embeddings (hidden states) but expose only the text interface.
+- **Vector Embeddings:** High-dimensional vectors that encode semantic meaning.  
+  These can be obtained independently of an LLM (e.g., sentence embeddings, ARC synthetic embeddings) and are directly manipulable.
+
+**NGF operates at the embedding level**, not at the text level.  
+This means NGF methods are pluggable into any LLM or embedding model.  
+Instead of manipulating prompts or fine-tuning weights, NGF directly reshapes latent trajectories in vector space.
+
+Research Plan Stages
 --------------------
-- **Problem:** Large models excel at pattern completion but can be *stochastically
-  brittle* and hallucinate under distribution shift, weak calibration, or noisy
-  contexts.
-- **Hypothesis:** If we can restructure the latent manifold so that task‑relevant
-  regions form **stable wells** separated by margins, then short, deterministic
-  geodesics emerge—yielding **reproducible** decisions.
-- **Evidence path (ngf‑alpha):** A staged research plan progressed from toy
-  spaces :math:`\mathbb{R}^4`/ :math:`\mathbb{R}^9` to noisy external latents
-  (LLM hidden states), culminating in **Stage‑11** where **Warp → Detect → Denoise**
-  became a working doctrine and delivered robustness gains on benchmarks.
+
+The NGF follows a 12-step research plan, with 10 completed stages posted here where step 10 marked the public rollout.  
+Steps 11–12 (milestone reports) are in progress.
+
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| Stage | Description                                   | Level               | Hardware    | Folder/Code                 |
++=======+===============================================+=====================+=============+=============================+
+| 1     | Toy Example                                   | Embedding / toy R⁴  | CPU         | toy-example/                |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| 2     | Embed Grid Intelligently                      | Embedding / toy R⁴  | CPU         | embed-grid/                 |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| 3     | Rotation Matrix Integration                   | Embedding / toy R⁴  | CPU         | rotation-matrix/            |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| 4     | Simulate Pattern Completion                   | Embedding / toy R⁴  | CPU         | pattern-completion/         |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| 5     | Higher-Dim Embeddings                         | Embedding / toy R⁹  | CPU         | higher-dim-embeddings/      |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| 6     | Integrate Dynamic Intelligence                | Embedding / toy R⁹  | CPU         | dynamic-intelligence/       |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| 7     | ARC Question                                  | Embedding / toy R⁹  | CPU         | rudimentary-arc/            |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| 8     | LLM Latent Embedding                          | Embedding / external| CPU         | llm-latent-embedding/       |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| 9     | Warp LLM Interference                         | Embedding / external| CPU         | warp-interference/          |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| 10    | Rudimentary Benchmarks                        | Embedding / external| CPU         | rudimentary-interference/   |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| 11    | Small Benchmarks                              | Latent / LLM        | CPU         | small-benchmarks/           |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+| 12    | Large Benchmark (coming)                      | Latent / LLM        | A100/T4     | milestone-benchmark/        |
++-------+-----------------------------------------------+---------------------+-------------+-----------------------------+
+
+
+Summary Note
+------------
+
+Stages 1–10 were critical as they provided the evidence that warping is effective.  
+In toy R⁴ and R⁹ spaces we saw clean, causal effects; in external LLM embeddings we validated that the same principles held under noise and larger dimensions.  
+
+Without this scaffolding, we would not have had the evidence to help cut through Stage 11 when the messy latents looked bleak.  
+If we apply the engine analogy: Stages 1–7 were toy engines, Stages 8–10 were mock-ups, and Stage 11 was where we dropped NGF into the engine bay (a live LLM).  
+Stage 11 transformed that conviction into the working doctrine: **Warp → Detect → Denoise**.
 
 Warp / Detect / Denoise (WDD)
 -----------------------------

@@ -15,8 +15,6 @@
         <script src="_static/doctools.js?v=9bcbadda"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -52,13 +50,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Research</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="research/ngf.html">Noetic Geodesic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="research/ngf.html">Noetic Geodesic Framework (Alpha)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="research/benchmarks.html">Benchmarks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="research/publications_patents.html">Publications / Patents</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="engineering/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering/interface_arc.html">Interface - ARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering/interface_defi.html">Interface - DeFi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="engineering/repository_structure.html">Repository Structure</a></li>
 </ul>
 
@@ -88,13 +87,145 @@
              
   <section id="introduction">
 <span id="getting-started-introduction"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
-<p>Welcome to the <strong>ngeodesic / micro-lm</strong> documentation.</p>
-<p>This project brings together three pillars:</p>
+<p>Ngeodesic provides safety guardrails for AI with enhanced performance. Our Micro-LM sidecars act as a <strong>Layer 2 for AI</strong>: improving efficiency and reliability, enforcing determinism, auditability, and compliance — all while letting large language models remain fluent and flexible. For GitHub repos, you can visit:</p>
 <ul class="simple">
-<li><p><strong>ngf-alpha</strong> → the research birthplace of Warp–Detect–Denoise (WDD) theory.</p></li>
-<li><p><strong>ngeodesic</strong> → the Python package implementing NGF rails (Stage-11).</p></li>
-<li><p><strong>micro-lm</strong> → lightweight, domain-specialized sidecars built on NGF rails.</p></li>
+<li><p><a class="reference external" href="https://github.com/ngeodesic-ai/ngf-alpha">NGF Research</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ngeodesic-ai/micro-lm">micro-LM</a></p></li>
 </ul>
+<section id="warp-detect-denoise-wdd">
+<h2>Warp-&gt;Detect-&gt;Denoise (WDD)<a class="headerlink" href="#warp-detect-denoise-wdd" title="Link to this heading"></a></h2>
+<p>Warp → Detect → Denoise (WDD) is a patented pipeline for making noisy latent spaces deterministic and auditable. It first warps embeddings into a stable geometry, then detects true signals with calibrated filters, and finally denoises phantom attractors. The result: reproducible PASS/ABSTAIN decisions with clear traces — turning stochastic LLM outputs into predictable, safe, enterprise-grade behavior.</p>
+<a class="reference internal image-reference" href="_images/ngf_warped_geodesic_contour.gif"><img alt="NGF Warped vs Flat Paths" class="align-center" src="_images/ngf_warped_geodesic_contour.gif" style="width: 420.0px; height: 420.0px;" />
+</a>
+</section>
+<section id="micro-lms">
+<h2>Micro-LMs<a class="headerlink" href="#micro-lms" title="Link to this heading"></a></h2>
+<p>Micro-LMs are lightweight, domain-specific companions to LLMs that provide determinism, safety, and auditability. They focus on a narrow set of primitives (e.g., DeFi actions, ARC puzzles), mapping prompts into PASS or ABSTAIN with verifiers and traces. The LLM handles fluency, while the micro-LM enforces guardrails and compliance — the best of both worlds.</p>
+</section>
+<section id="micro-lm-sidecar">
+<h2>Micro-LM Sidecar<a class="headerlink" href="#micro-lm-sidecar" title="Link to this heading"></a></h2>
+<p>A <strong>Micro-LM Sidecar</strong> can be thought of as a <strong>Layer 2 for AI</strong>: it doesn’t replace the large language model, but it sits alongside it to improve performance, add safety guardrails, determinism, and auditability. In AI, the LLM is like Layer 1: broad, powerful, but stochastic and sometimes unsafe. A Micro-LM Sidecar is like Layer 2: lightweight, domain-specific, enforcing determinism and safety guardrails, but still “anchored” to the LLM’s fluency and reasoning power.</p>
+<p><strong>Request Cycle</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>User<span class="w"> </span>→<span class="w"> </span>LLM<span class="w"> </span>→<span class="w"> </span>/decide<span class="w"> </span><span class="o">{</span>prompt,<span class="w"> </span>context,<span class="w"> </span>policy<span class="o">}</span>
+<span class="w">                 </span>↓
+<span class="w">           </span>SBERT<span class="w"> </span>→<span class="w"> </span>PCA<span class="w"> </span>→<span class="w"> </span>map<span class="w"> </span>→<span class="w"> </span>θ<span class="w"> </span>→<span class="w"> </span>guards
+<span class="w">                 </span>↓
+<span class="w">   </span>←<span class="w"> </span><span class="o">{</span>approve<span class="p">|</span>reject<span class="p">|</span>abstain,<span class="w"> </span>reason,<span class="w"> </span>plan,<span class="w"> </span>trace_id<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>LLM explains/asks confirm</p></li>
+<li><p>User confirms</p></li>
+<li><p>LLM → /execute {trace_id, plan}</p></li>
+<li><p>Sidecar re-checks guards → tools (if OK) → finalize trace</p></li>
+</ul>
+<p><strong>Workstream Breakdown</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Status icons legend — ✅ Built • 🟡 Partial • 🔴 Planning</p>
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Workstream</p></th>
+<th class="head"><p>What it covers</p></th>
+<th class="head"><p>Component</p></th>
+<th class="head"><p>Status</p></th>
+<th class="head"><p>% Effort</p></th>
+<th class="head"><p>% Done</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WDD R&amp;D</p></td>
+<td><p>Research, math, validation of Warp → Detect →
+Denoise (ngf-alpha, DeFi/ARC, proofs).</p></td>
+<td><p>WDD</p></td>
+<td><p>✅</p></td>
+<td><p>30%</p></td>
+<td><p>30%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Core pipeline (R&amp;D)</p></td>
+<td><p>SBERT → PCA prototyping, thresholds, datasets</p></td>
+<td><p>Micro-LM</p></td>
+<td><p>✅</p></td>
+<td><p>15%</p></td>
+<td><p>13%</p></td>
+</tr>
+<tr class="row-even"><td><p>Core pipeline
+(Engineering)</p></td>
+<td><p>Engineering impl. of SBERT → PCA/θ,
+integration with WDD-lite.</p></td>
+<td><p>Micro-LM</p></td>
+<td><p>✅</p></td>
+<td><p>20%</p></td>
+<td><p>17%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Domain guards</p></td>
+<td><p>HF / LTV / oracle freshness verifiers.</p></td>
+<td><p>Micro-LM</p></td>
+<td><p>✅</p></td>
+<td><p>10%</p></td>
+<td><p>8%</p></td>
+</tr>
+<tr class="row-even"><td><p>Plans &amp; policies</p></td>
+<td><p>Primitive specs, per-class thresholds,
+policy defaults.</p></td>
+<td><p>Micro-LM</p></td>
+<td><p>✅</p></td>
+<td><p>5%</p></td>
+<td><p>4%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Quickstart harness</p></td>
+<td><p>In-process run + JSON outputs.</p></td>
+<td><p>Micro-LM</p></td>
+<td><p>✅</p></td>
+<td><p>5%</p></td>
+<td><p>4%</p></td>
+</tr>
+<tr class="row-even"><td><p>Tests &amp; canaries</p></td>
+<td><p>Smoke cases, threshold checks.</p></td>
+<td><p>Micro-LM</p></td>
+<td><p>🟡</p></td>
+<td><p>5%</p></td>
+<td><p>3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>API layer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/decide</span></code>, <code class="docutils literal notranslate"><span class="pre">/execute</span></code>, schemas.</p></td>
+<td><p>Sidecar</p></td>
+<td><p>🔴</p></td>
+<td><p>4%</p></td>
+<td><p>0%</p></td>
+</tr>
+<tr class="row-even"><td><p>Orchestrator glue</p></td>
+<td><p>Routing, retries, caches.</p></td>
+<td><p>Sidecar</p></td>
+<td><p>🔴</p></td>
+<td><p>2%</p></td>
+<td><p>0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Observability</p></td>
+<td><p>Logs, metrics, <code class="docutils literal notranslate"><span class="pre">/healthz</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">/version</span></code>.</p></td>
+<td><p>Sidecar</p></td>
+<td><p>🔴</p></td>
+<td><p>2%</p></td>
+<td><p>0%</p></td>
+</tr>
+<tr class="row-even"><td><p>Audit trail</p></td>
+<td><p>Structured traces, IDs.</p></td>
+<td><p>Sidecar</p></td>
+<td><p>🟡</p></td>
+<td><p>1%</p></td>
+<td><p>0.3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ops safety</p></td>
+<td><p>Warmup, kill-switch, double-gate at execute.</p></td>
+<td><p>Sidecar</p></td>
+<td><p>🟡</p></td>
+<td><p>1%</p></td>
+<td><p>0.2%</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total % Done ≈ 85% (±5%).</strong></p>
 <p>Our first pilots are:</p>
 <ul class="simple">
 <li><p><strong>ARC Micro-LM</strong> → reasoning stress test (Abstraction &amp; Reasoning Corpus).</p></li>
@@ -110,6 +241,7 @@ this guide will help you get started quickly.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 
 

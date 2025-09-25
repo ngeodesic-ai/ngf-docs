@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Noetic Geodesic Framework &mdash; ngeodesic.ai 0.1 documentation</title>
+  <title>Noetic Geodesic Framework (Alpha) &mdash; ngeodesic.ai 0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -15,8 +15,6 @@
         <script src="../_static/doctools.js?v=9bcbadda"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -53,9 +51,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Research</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Noetic Geodesic Framework</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#origins-motivation">Origins &amp; Motivation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Noetic Geodesic Framework (Alpha)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#llms-vs-vector-embeddings">LLMs vs Vector Embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#research-plan-stages">Research Plan Stages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary-note">Summary Note</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#warp-detect-denoise-wdd">Warp / Detect / Denoise (WDD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#trace-manifold-shaping">Trace Manifold Shaping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#practical-implications">Practical Implications</a></li>
@@ -67,7 +66,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../engineering/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/interface_arc.html">Interface - ARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/interface_defi.html">Interface - DeFi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../engineering/repository_structure.html">Repository Structure</a></li>
 </ul>
 
@@ -85,7 +85,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Noetic Geodesic Framework</li>
+      <li>Noetic Geodesic Framework (Alpha)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/research/ngf.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -95,38 +95,124 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="noetic-geodesic-framework">
-<span id="research-ngf"></span><h1>Noetic Geodesic Framework<a class="headerlink" href="#noetic-geodesic-framework" title="Link to this heading"></a></h1>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
-<p>The <strong>Noetic Geodesic Framework (NGF)</strong> is a geometric approach to deterministic AI
-reasoning. It reframes reasoning over <strong>latent spaces</strong> as geodesic traversals through
-<strong>warped manifolds</strong>, where semantic structure is enforced by energy wells. This lets
-us suppress hallucinations and enforce <strong>stable, truth‑aligned reasoning</strong> by shaping
-the geometry that models traverse.</p>
-<p>NGF operates at the <em>embedding</em> level, not the text level; it is pluggable into
-LLMs and encoders by intercepting and shaping their latent trajectories.</p>
-<div class="tip admonition">
-<p class="admonition-title">Key Idea</p>
-<p>Instead of fine‑tuning weights or prompt engineering, <strong>NGF shapes the latent
-manifold</strong> so that trajectories follow <strong>deterministic geodesics</strong> toward
-correct regions (semantic wells), and away from noise.</p>
-</div>
-</section>
-<section id="origins-motivation">
-<h2>Origins &amp; Motivation<a class="headerlink" href="#origins-motivation" title="Link to this heading"></a></h2>
+  <section id="noetic-geodesic-framework-alpha">
+<span id="research-ngf"></span><h1>Noetic Geodesic Framework (Alpha)<a class="headerlink" href="#noetic-geodesic-framework-alpha" title="Link to this heading"></a></h1>
+<p>🚀 <strong>The Noetic Geodesic Framework (NGF)</strong> is a geometric approach to deterministic AI reasoning.
+It reframes reasoning in latent space as geodesic traversals through warped manifolds, where semantic structure is enforced by energy wells.
+This allows us to suppress hallucinations and enforce stable, truth-aligned reasoning.</p>
+<p>NGF builds on two key pillars:</p>
 <ul class="simple">
-<li><p><strong>Problem:</strong> Large models excel at pattern completion but can be <em>stochastically
-brittle</em> and hallucinate under distribution shift, weak calibration, or noisy
-contexts.</p></li>
-<li><p><strong>Hypothesis:</strong> If we can restructure the latent manifold so that task‑relevant
-regions form <strong>stable wells</strong> separated by margins, then short, deterministic
-geodesics emerge—yielding <strong>reproducible</strong> decisions.</p></li>
-<li><p><strong>Evidence path (ngf‑alpha):</strong> A staged research plan progressed from toy
-spaces <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>/ <span class="math notranslate nohighlight">\(\mathbb{R}^9\)</span> to noisy external latents
-(LLM hidden states), culminating in <strong>Stage‑11</strong> where <strong>Warp → Detect → Denoise</strong>
-became a working doctrine and delivered robustness gains on benchmarks.</p></li>
+<li><p><strong>Latent Vector Embeddings</strong> — high-dimensional representations (used across modern AI, including LLMs).</p></li>
+<li><p><strong>Warp → Detect → Denoise Doctrine (Stage 11)</strong> — our pipeline that shapes these embeddings into deterministic geodesic trajectories.</p></li>
 </ul>
+<section id="llms-vs-vector-embeddings">
+<h2>LLMs vs Vector Embeddings<a class="headerlink" href="#llms-vs-vector-embeddings" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>LLMs (Large Language Models):</strong> Sequence models that operate on tokens, typically built on transformer architectures.
+They internally rely on vector embeddings (hidden states) but expose only the text interface.</p></li>
+<li><p><strong>Vector Embeddings:</strong> High-dimensional vectors that encode semantic meaning.
+These can be obtained independently of an LLM (e.g., sentence embeddings, ARC synthetic embeddings) and are directly manipulable.</p></li>
+</ul>
+<p><strong>NGF operates at the embedding level</strong>, not at the text level.
+This means NGF methods are pluggable into any LLM or embedding model.
+Instead of manipulating prompts or fine-tuning weights, NGF directly reshapes latent trajectories in vector space.</p>
+</section>
+<section id="research-plan-stages">
+<h2>Research Plan Stages<a class="headerlink" href="#research-plan-stages" title="Link to this heading"></a></h2>
+<p>The NGF follows a 12-step research plan, with 10 completed stages posted here where step 10 marked the public rollout.
+Steps 11–12 (milestone reports) are in progress.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Level</p></th>
+<th class="head"><p>Hardware</p></th>
+<th class="head"><p>Folder/Code</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Toy Example</p></td>
+<td><p>Embedding / toy R⁴</p></td>
+<td><p>CPU</p></td>
+<td><p>toy-example/</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Embed Grid Intelligently</p></td>
+<td><p>Embedding / toy R⁴</p></td>
+<td><p>CPU</p></td>
+<td><p>embed-grid/</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Rotation Matrix Integration</p></td>
+<td><p>Embedding / toy R⁴</p></td>
+<td><p>CPU</p></td>
+<td><p>rotation-matrix/</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Simulate Pattern Completion</p></td>
+<td><p>Embedding / toy R⁴</p></td>
+<td><p>CPU</p></td>
+<td><p>pattern-completion/</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Higher-Dim Embeddings</p></td>
+<td><p>Embedding / toy R⁹</p></td>
+<td><p>CPU</p></td>
+<td><p>higher-dim-embeddings/</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Integrate Dynamic Intelligence</p></td>
+<td><p>Embedding / toy R⁹</p></td>
+<td><p>CPU</p></td>
+<td><p>dynamic-intelligence/</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>ARC Question</p></td>
+<td><p>Embedding / toy R⁹</p></td>
+<td><p>CPU</p></td>
+<td><p>rudimentary-arc/</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>LLM Latent Embedding</p></td>
+<td><p>Embedding / external</p></td>
+<td><p>CPU</p></td>
+<td><p>llm-latent-embedding/</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Warp LLM Interference</p></td>
+<td><p>Embedding / external</p></td>
+<td><p>CPU</p></td>
+<td><p>warp-interference/</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Rudimentary Benchmarks</p></td>
+<td><p>Embedding / external</p></td>
+<td><p>CPU</p></td>
+<td><p>rudimentary-interference/</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Small Benchmarks</p></td>
+<td><p>Latent / LLM</p></td>
+<td><p>CPU</p></td>
+<td><p>small-benchmarks/</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Large Benchmark (coming)</p></td>
+<td><p>Latent / LLM</p></td>
+<td><p>A100/T4</p></td>
+<td><p>milestone-benchmark/</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="summary-note">
+<h2>Summary Note<a class="headerlink" href="#summary-note" title="Link to this heading"></a></h2>
+<p>Stages 1–10 were critical as they provided the evidence that warping is effective.
+In toy R⁴ and R⁹ spaces we saw clean, causal effects; in external LLM embeddings we validated that the same principles held under noise and larger dimensions.</p>
+<p>Without this scaffolding, we would not have had the evidence to help cut through Stage 11 when the messy latents looked bleak.
+If we apply the engine analogy: Stages 1–7 were toy engines, Stages 8–10 were mock-ups, and Stage 11 was where we dropped NGF into the engine bay (a live LLM).
+Stage 11 transformed that conviction into the working doctrine: <strong>Warp → Detect → Denoise</strong>.</p>
 </section>
 <section id="warp-detect-denoise-wdd">
 <h2>Warp / Detect / Denoise (WDD)<a class="headerlink" href="#warp-detect-denoise-wdd" title="Link to this heading"></a></h2>

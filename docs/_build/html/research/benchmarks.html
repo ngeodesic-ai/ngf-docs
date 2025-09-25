@@ -15,13 +15,11 @@
         <script src="../_static/doctools.js?v=9bcbadda"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Publications / Patents" href="publications_patents.html" />
-    <link rel="prev" title="Noetic Geodesic Framework" href="ngf.html" /> 
+    <link rel="prev" title="Noetic Geodesic Framework (Alpha)" href="ngf.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,19 +51,19 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Research</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ngf.html">Noetic Geodesic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ngf.html">Noetic Geodesic Framework (Alpha)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmarks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#early-prototypes">Early Prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#part-a-latent-arc-results-n-100">(Part A) Latent-ARC Results (n=100)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#part-b-lmm-hellaswag-results-n-1000">(Part B) LMM-HellaSwag Results (n=1000)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#key-results-micro-lms">Key Results → Micro-LMs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pointers-further-reading">Pointers &amp; Further Reading</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="publications_patents.html">Publications / Patents</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../engineering/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/interface_arc.html">Interface - ARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/interface_defi.html">Interface - DeFi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../engineering/repository_structure.html">Repository Structure</a></li>
 </ul>
 
@@ -95,44 +93,94 @@
              
   <section id="benchmarks">
 <span id="research-ngf-alpha-benchmarks"></span><h1>Benchmarks<a class="headerlink" href="#benchmarks" title="Link to this heading"></a></h1>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
-<p><strong>ngf-alpha</strong> was the first research repository for exploring the <strong>Noetic Geodesic
-Framework (NGF)</strong>. It documented staged experiments that tested whether latent
-manifolds could be warped, detected, and denoised to produce <strong>deterministic,
-reproducible reasoning</strong>.</p>
-<p>The staged design allowed systematic exploration from toy settings to real latent
-spaces, gradually validating the Warp–Detect–Denoise (WDD) doctrine.</p>
-</section>
-<section id="early-prototypes">
-<h2>Early Prototypes<a class="headerlink" href="#early-prototypes" title="Link to this heading"></a></h2>
-<ul>
-<li><p><strong>Stage 0–3 (Toy Spaces):</strong>
-- Operated in simple vector spaces (<span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>, <span class="math notranslate nohighlight">\(\mathbb{R}^9\)</span>).
-- Tested geodesic shaping in low dimensions.
-- Showed that introducing <em>semantic wells</em> could reduce trajectory variance.</p></li>
-<li><p><strong>Stage 4–6 (Synthetic Trace Families):</strong>
-- Applied WDD logic to synthetic ARC‑like traces.
-- Proved that matched filters with nulls/foils could separate valid routes</p>
-<blockquote>
-<div><p>from noise.</p>
-</div></blockquote>
+<p>Stage-11 introduced the breakthrough:</p>
 <ul class="simple">
-<li><p>Early use of temporal smoothing to reduce decision instability.</p></li>
+<li><p><strong>Warp:</strong> Embed latents into PCA(3) space, warp into a single dominant well.</p></li>
+<li><p><strong>Detect:</strong> Use matched filters with null calibration to identify the true well.</p></li>
+<li><p><strong>Denoise:</strong> Apply smoothing, phantom guards, and jitter averaging to suppress false wells.</p></li>
 </ul>
-</li>
-<li><p><strong>Stage 7–9 (Noisy External Latents):</strong>
-- Integrated SBERT embeddings and LLM hidden states.
-- Demonstrated that warp alignment + detection thresholds could <strong>stabilize</strong></p>
-<blockquote>
-<div><p>mappings from NL prompts → task primitives.</p>
-</div></blockquote>
-</li>
-<li><p><strong>Stage 10–11 (Full NGF Rails):</strong>
-- Introduced the canonical Warp → Detect → Denoise sequence.
-- Benchmarked robustness under perturbations (synonyms, paraphrases, jitter).
-- Validated <strong>abstain logic</strong> as a principled alternative to misclassification.</p></li>
-</ul>
+<section id="part-a-latent-arc-results-n-100">
+<h2>(Part A) Latent-ARC Results (n=100)<a class="headerlink" href="#part-a-latent-arc-results-n-100" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Exact Acc</p></th>
+<th class="head"><p>Precision</p></th>
+<th class="head"><p>Recall</p></th>
+<th class="head"><p>F1</p></th>
+<th class="head"><p>Halluc.</p></th>
+<th class="head"><p>Omission</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Denoise (Stage 11)</p></td>
+<td><p><strong>1.000</strong></p></td>
+<td><p>0.9977</p></td>
+<td><p>0.9989</p></td>
+<td><p>0.9983</p></td>
+<td><p>0.0045</p></td>
+<td><p>0.0023</p></td>
+</tr>
+<tr class="row-odd"><td><p>Geodesic (pre)</p></td>
+<td><p>0.640</p></td>
+<td><p>0.8450</p></td>
+<td><p>1.0000</p></td>
+<td><p>0.8980</p></td>
+<td><p>0.1550</p></td>
+<td><p>0.0000</p></td>
+</tr>
+<tr class="row-even"><td><p>Stock baseline</p></td>
+<td><p>0.490</p></td>
+<td><p>0.8900</p></td>
+<td><p>0.7767</p></td>
+<td><p>0.7973</p></td>
+<td><p>0.1100</p></td>
+<td><p>0.2233</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note (Part A):</strong> Stock baseline approximates what you’d see if you used simple thresholds
+on LLM latents/logits without NGF’s Warp → Detect → Denoise.</p>
+</section>
+<section id="part-b-lmm-hellaswag-results-n-1000">
+<h2>(Part B) LMM-HellaSwag Results (n=1000)<a class="headerlink" href="#part-b-lmm-hellaswag-results-n-1000" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>F1</p></th>
+<th class="head"><p>ECE (Calibration)</p></th>
+<th class="head"><p>Brier Score</p></th>
+<th class="head"><p>Overconfidence &gt; 0.70</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MaxWarp (Stage 11)</p></td>
+<td><p>0.35</p></td>
+<td><p>0.080</p></td>
+<td><p>0.743</p></td>
+<td><p>1.2%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stock baseline</p></td>
+<td><p>0.324</p></td>
+<td><p>0.122</p></td>
+<td><p>0.750</p></td>
+<td><p>0.7%</p></td>
+</tr>
+<tr class="row-even"><td><p>Change (Δ)</p></td>
+<td><p>+0.032</p></td>
+<td><p>-0.032</p></td>
+<td><p>-0.007</p></td>
+<td><p>+0.5%</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/stage11_well_compare.png"><img alt="NGF Warped vs Flat Paths" src="../_images/stage11_well_compare.png" style="width: 720.0px; height: 324.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Fig 1. PCA-2 visualization of “semantic wells” (pre vs post warp) on GPT-2 (tap 9).</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="key-results-micro-lms">
 <h2>Key Results → Micro-LMs<a class="headerlink" href="#key-results-micro-lms" title="Link to this heading"></a></h2>
@@ -158,23 +206,13 @@ primitives under verifiers.</p>
 </li>
 </ol>
 </section>
-<section id="pointers-further-reading">
-<h2>Pointers &amp; Further Reading<a class="headerlink" href="#pointers-further-reading" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>See the <cite>ngf-alpha</cite> repository for full experimental logs and staged designs.</p></li>
-<li><p>Stage‑11 experiments are particularly important: they introduced canonical
-WDD rails and proved abstain determinism.</p></li>
-<li><p>For patent coverage, see <strong>Warp–Detect–Denoise</strong>, <strong>Micro‑LM sidecars</strong>, and
-<strong>trace manifold shaping</strong> filings.</p></li>
-</ul>
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ngf.html" class="btn btn-neutral float-left" title="Noetic Geodesic Framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ngf.html" class="btn btn-neutral float-left" title="Noetic Geodesic Framework (Alpha)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="publications_patents.html" class="btn btn-neutral float-right" title="Publications / Patents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

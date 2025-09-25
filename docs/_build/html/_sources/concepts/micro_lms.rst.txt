@@ -3,12 +3,21 @@
 Micro-LMs
 ===================
 
-- **LLM = generalist**: broad knowledge, flexible language, but *stochastic and unsafe* for mission-critical execution.  
-- **micro-LM = specialist**: slim, deterministic, auditable, and **more accurate where it matters** (DeFi/Finance, Manufacturing & Robotics, Industrial Robotics, Supply Chain & Logistics, Energy & Grid Management, etc).
+Micro-LMs are lightweight, domain-specialized AIs that run on NGF rails, turning natural language into deterministic, auditable actions with built-in safety and abstain guarantees. We are piloting this idea first on ARC (Abstraction & Reasoning Corpus) testing to highlight its reasoning power, then for DeFi (Decentralized Finance) to highlight it applicability (one of many verticals) — both built on top of the ngeodesic Python package.
+
+**Attributes**
+
+- **Determinism:** Same inputs → same decisions (traceable, reproducible).
+- **Domain focus:** Small, curated primitive sets (e.g., ARC ops, DeFi ops).
+- **Safety-first:** Refuse (ABSTAIN) when uncertain instead of hallucinating.
+- **Composability:** Plug into existing apps and LLMs without retraining.
 
 
 LLMs vs. micro-LMs 
 -------------------
+
+- **LLM = generalist**: broad knowledge, flexible language, but *stochastic and unsafe* for mission-critical execution.  
+- **micro-LM = specialist**: slim, deterministic, auditable, and **more accurate where it matters** (DeFi/Finance, Manufacturing & Robotics, Industrial Robotics, Supply Chain & Logistics, Energy & Grid Management, etc).
 
 +-------------------------+-------------------------------------------------------------+-------------------------------------------------------------------+
 | Dimension               | LLMs (ChatGPT, Claude, Meta, Perplexity, etc.)              | **micro-LMs (ARC, DeFi)**                                         |
@@ -37,12 +46,7 @@ LLMs vs. micro-LMs
 | Compliance fit**        |                                                             | regulators demand safety.                                         |
 +-------------------------+-------------------------------------------------------------+-------------------------------------------------------------------+
 
-Why Micro-LMs?
---------------
-- **Determinism:** Same inputs → same decisions (traceable, reproducible).
-- **Domain focus:** Small, curated primitive sets (e.g., ARC ops, DeFi ops).
-- **Safety-first:** Refuse (ABSTAIN) when uncertain instead of hallucinating.
-- **Composability:** Plug into existing apps and LLMs without retraining.
+
 
 Core Components
 ---------------
@@ -51,8 +55,10 @@ Core Components
 - **Verifiers:** Domain rules/policies (e.g., LTV/HF/oracle in DeFi).
 - **Executor:** Applies the verified plan; or aborts if verifiers fail.
 
-Example (DeFi)
+Examples 
 --------------
+
+**DeFi**
 A prompt like *"deposit 10 ETH into aave"* is mapped to a ``deposit_asset`` primitive.
 Verifiers check collateralization, oracle age, and policy limits. If safe, the plan
 is emitted; otherwise the system **ABSTAINS** with an explicit reason.
