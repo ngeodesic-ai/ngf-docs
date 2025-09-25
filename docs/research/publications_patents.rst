@@ -19,16 +19,16 @@ Publications
   Introduces the imagery of **Warped Semantic Manifolds**, **Cognition Wells**,
   **Geodesic Traversals**, and **Noetic Singularities**. Claims priority on these
   concepts and motivates their role in deterministic reasoning.  
-  DOI: `10.5281/zenodo.16730759 <https://zenodo.org/records/16908227>`_ 【191†memo_v4.pdf】
+  DOI: `10.5281/zenodo.16730759 <https://zenodo.org/records/16908227>`_ 
 
-**Preprint (Stage‑11, Work in Progress)**  
+**Early Preprint (Stage‑11, Work in Progress)**  
 - *Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning*  
   Ian C. Moore, PhD. August 2025.  
   Describes the canonical **Warp → Detect → Denoise** doctrine at Stage‑11, with
   experiments on Latent‑ARC showing near‑deterministic behavior (100/100 exact,
   hallucination ≈ 0.5%).  
   Provisional patent applications listed.  
-  DOI: `10.5281/zenodo.17032117 <https://zenodo.org/records/17032117>`_ 【192†article_v20.pdf】
+  DOI: `10.5281/zenodo.17032117 <https://zenodo.org/records/17032117>`_ 
 
 **Ongoing Work**  
 - Expanded NGF article draft (`article_v20.pdf`) consolidates theory, math,
