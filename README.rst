@@ -38,9 +38,9 @@ The documentation site (ReadTheDocs) covers:
 🔗 Documentation Site
 ---------------------
 
-Full documentation is available on ReadTheDocs:
+Full documentation is available on:
 
-- https://ngf-docs.readthedocs.io (coming soon)
+- http://ngeodesic.ai 
 
 ---
 
