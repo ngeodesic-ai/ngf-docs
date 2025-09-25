@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testing &amp; Benchmarks &mdash; ngeodesic.ai 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Integration with ngeodesic" href="integration_ngeodesic.html" />
+    <link rel="prev" title="CLI Usage" href="cli_usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #283D5F" >
+            <a href="../index.html" class="icon icon-home"> ngeodesic.ai
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/micro_lms.html">Micro-LMs Explained</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/ngf_rails.html">Warp → Detect → Denoise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/determinism_abstains.html">Determinism &amp; Abstains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/tiers.html">Tiers 1-3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Research</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../research/ngf.html">Noetic Geodesic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/current_threads.html">Current Research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/experiments.html">NGF-Alpha Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/publications_patents.html">Publications &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../framework/micro_lm_package.html">Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/ngeodesic_package.html">ngeodesic Python Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/policy_verifiers.html">Policy &amp; Verifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/stage11_rails.html">Stage-11 Rails in Detail</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="repository_structure.html">Repository Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli_usage.html">CLI Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing &amp; Benchmarks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-strategy">Testing Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#benchmark-files">Benchmark Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metrics">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sbert-training-stage-8">SBERT Training (Stage-8)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auditor-verification-stage-9">Auditor Verification (Stage-9)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-into-stage-11">Integration into Stage-11</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="integration_ngeodesic.html">Integration with ngeodesic</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #283D5F" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ngeodesic.ai</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Testing &amp; Benchmarks</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/benchmarks.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="testing-benchmarks">
+<span id="engineering-testing-benchmarks"></span><h1>Testing &amp; Benchmarks<a class="headerlink" href="#testing-benchmarks" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Testing and benchmarking are critical to ensure that Micro‑LMs behave
+<strong>deterministically</strong>, abstain when appropriate, and meet domain safety policies.</p>
+<p>Benchmarks are run through the <code class="docutils literal notranslate"><span class="pre">micro-lm-bench</span></code> CLI, which executes
+domain‑specific pipelines (ARC, DeFi) on curated test sets and reports metrics.</p>
+</section>
+<section id="testing-strategy">
+<h2>Testing Strategy<a class="headerlink" href="#testing-strategy" title="Link to this heading"></a></h2>
+<p>The testing stack is layered across tiers:</p>
+<ul class="simple">
+<li><p><strong>Tier‑1 (Mapper focus):</strong>
+- Mapper trained on SBERT or wordmap embeddings.
+- Benchmarks validate top‑1 accuracy across primitives.
+- Determinism checked: identical prompts → identical labels.
+- Policy verifiers (LTV, HF, oracle, schema checks) applied post‑mapping.</p></li>
+<li><p><strong>Tier‑2 (Auditor focus):</strong>
+- Introduces <strong>WDD rails</strong> on SBERT latents (PCA, matched filters, nulls/foils).
+- Auditor harness verifies mapper predictions independently.
+- Abstain quality improves: auditor can veto mapper misclassifications.
+- No tautology: audit uses separate latent projections 【231†TIER2.md】.</p></li>
+<li><p><strong>Tier‑3 (Planned, LLM latents):</strong>
+- Auditor extended to messy LLM hidden states.
+- Goal: preserve abstain determinism while broadening domain coverage.</p></li>
+</ul>
+</section>
+<section id="benchmark-files">
+<h2>Benchmark Files<a class="headerlink" href="#benchmark-files" title="Link to this heading"></a></h2>
+<p>Benchmarks are stored in JSONL format:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deposit 10 ETH into aave&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deposit_asset&quot;</span><span class="p">}</span>
+<span class="p">{</span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;swap 5 SOL into USDC on uniswap&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;swap_asset&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>CLI Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micro-lm-bench<span class="w"> </span>defi<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--file<span class="w"> </span>benches/defi_smoke.jsonl<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--out<span class="w"> </span>.artifacts/defi_smoke_results.jsonl<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--summary-out<span class="w"> </span>.artifacts/defi_smoke_summary.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--gate-metric<span class="w"> </span>ok_acc<span class="w"> </span>--gate-min<span class="w"> </span><span class="m">0</span>.66
+</pre></div>
+</div>
+</section>
+<section id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Link to this heading"></a></h2>
+<p>Key metrics include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ok_acc</span></code>: accuracy on accepted prompts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">abstain_rate</span></code>: fraction of prompts abstained.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">macro-F1</span></code>: balanced performance across primitives.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">determinism</span></code>: % identical traces across repeated runs.</p></li>
+</ul>
+<p>Example Summary (smoke benchmark):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ok&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ok_acc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6667</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;abstain_rate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="sbert-training-stage-8">
+<h2>SBERT Training (Stage-8)<a class="headerlink" href="#sbert-training-stage-8" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>SBERT embeddings trained/fine‑tuned on labeled primitives 【230†SBERT.md】.</p></li>
+<li><p>Produces clean latent spaces for Tier‑1/Tier‑2.</p></li>
+<li><p>Mapper is stored as <code class="docutils literal notranslate"><span class="pre">.artifacts/defi_mapper.joblib</span></code>.</p></li>
+</ul>
+</section>
+<section id="auditor-verification-stage-9">
+<h2>Auditor Verification (Stage-9)<a class="headerlink" href="#auditor-verification-stage-9" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Independent auditor built on PCA + WDD rails.</p></li>
+<li><p>Uses matched filters + null calibration to detect foils.</p></li>
+<li><p>Validates mapper predictions; can abstain if margins weak.</p></li>
+<li><p>Produces <strong>zero hallucinations</strong> on out‑of‑domain prompts 【227†BENCHMARK.md】.</p></li>
+</ul>
+</section>
+<section id="integration-into-stage-11">
+<h2>Integration into Stage-11<a class="headerlink" href="#integration-into-stage-11" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Stage‑11 harness integrates mapper + auditor + policy verifiers.</p></li>
+<li><p>All artifacts (mapper scores, auditor decisions, abstain reasons) logged.</p></li>
+<li><p>Determinism validated under perturbation (synonyms, jitter).</p></li>
+<li><p>Ensures reproducibility with explicit <strong>ok/abstain</strong> outputs.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cli_usage.html" class="btn btn-neutral float-left" title="CLI Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="integration_ngeodesic.html" class="btn btn-neutral float-right" title="Integration with ngeodesic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

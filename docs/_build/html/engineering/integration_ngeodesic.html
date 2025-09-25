@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integration with ngeodesic &mdash; ngeodesic.ai 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Testing &amp; Benchmarks" href="benchmarks.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #283D5F" >
+            <a href="../index.html" class="icon icon-home"> ngeodesic.ai
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/micro_lms.html">Micro-LMs Explained</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/ngf_rails.html">Warp → Detect → Denoise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/determinism_abstains.html">Determinism &amp; Abstains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/tiers.html">Tiers 1-3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Research</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../research/ngf.html">Noetic Geodesic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/current_threads.html">Current Research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/experiments.html">NGF-Alpha Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/publications_patents.html">Publications &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../framework/micro_lm_package.html">Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/ngeodesic_package.html">ngeodesic Python Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/policy_verifiers.html">Policy &amp; Verifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/stage11_rails.html">Stage-11 Rails in Detail</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="repository_structure.html">Repository Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli_usage.html">CLI Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Testing &amp; Benchmarks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Integration with ngeodesic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-integration-works">How Integration Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rails-integration">Rails Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tier-2-refactor">Tier-2 Refactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#policy-verifiers">Policy &amp; Verifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#benefits">Benefits</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #283D5F" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ngeodesic.ai</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Integration with ngeodesic</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/integration_ngeodesic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="integration-with-ngeodesic">
+<span id="engineering-integration-ngeodesic"></span><h1>Integration with ngeodesic<a class="headerlink" href="#integration-with-ngeodesic" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>micro-lm</strong> product line is built on top of the <strong>ngeodesic</strong> Python package,
+which implements the <strong>Noetic Geodesic Framework (NGF)</strong> rails.</p>
+<p>This integration ensures that Micro‑LMs inherit deterministic behavior,
+WDD doctrine, and abstain guarantees from NGF.</p>
+</section>
+<section id="how-integration-works">
+<h2>How Integration Works<a class="headerlink" href="#how-integration-works" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>ngf-alpha (research):</strong> proved Warp → Detect → Denoise (WDD) in staged experiments.</p></li>
+<li><p><strong>ngeodesic (framework):</strong> packaged NGF rails (Stage‑11) into a stable API.</p></li>
+<li><p><strong>micro-lm (applications):</strong> consumes ngeodesic APIs to run domain‑specific sidecars.</p></li>
+</ul>
+</section>
+<section id="rails-integration">
+<h2>Rails Integration<a class="headerlink" href="#rails-integration" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Micro‑LMs call <code class="docutils literal notranslate"><span class="pre">ngeodesic.core</span></code> modules for warp, detect, and denoise.</p></li>
+<li><p>Stage‑11 parser runs latent traces through:
+- <strong>Warp:</strong> PCA projection + funnel shaping.
+- <strong>Detect:</strong> matched filters + nulls/foils.
+- <strong>Denoise:</strong> hybrid EMA/median + jitter averaging.</p></li>
+<li><p>Deterministic traces and abstains are returned to the Micro‑LM harness.</p></li>
+</ul>
+</section>
+<section id="tier-2-refactor">
+<h2>Tier-2 Refactor<a class="headerlink" href="#tier-2-refactor" title="Link to this heading"></a></h2>
+<p>In Tier‑2, Micro‑LMs expanded to use <strong>auditors</strong> powered by ngeodesic WDD rails:</p>
+<ul class="simple">
+<li><p>Mapper proposes candidate primitive.</p></li>
+<li><p>Auditor projects into PCA space, applies WDD detection, checks nulls/foils.</p></li>
+<li><p>Auditor may <strong>abstain</strong>, even if mapper proposed a label.</p></li>
+<li><p>Prevents tautology by keeping mapper vs audit paths independent. 【231†TIER2.md】</p></li>
+</ul>
+</section>
+<section id="policy-verifiers">
+<h2>Policy &amp; Verifiers<a class="headerlink" href="#policy-verifiers" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>After ngeodesic rails return candidates, Micro‑LMs apply <strong>policy checks</strong>.</p></li>
+<li><p>Example (DeFi): enforce Loan‑to‑Value (LTV), Health Factor (HF), oracle freshness.</p></li>
+<li><p>Example (ARC): enforce schema compliance, sanity checks on transformations.</p></li>
+<li><p>This layered design means:
+- <strong>ngeodesic rails</strong> ensure determinism.
+- <strong>Micro‑LM policy/verifiers</strong> ensure domain‑specific safety.</p></li>
+</ul>
+</section>
+<section id="benefits">
+<h2>Benefits<a class="headerlink" href="#benefits" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Reuse:</strong> Rails logic is maintained in ngeodesic, keeping micro-lm lightweight.</p></li>
+<li><p><strong>Stability:</strong> Shared rails ensure consistent behavior across domains.</p></li>
+<li><p><strong>Separation of concerns:</strong> Research (ngf-alpha) → framework (ngeodesic) → product (micro-lm).</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="benchmarks.html" class="btn btn-neutral float-left" title="Testing &amp; Benchmarks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

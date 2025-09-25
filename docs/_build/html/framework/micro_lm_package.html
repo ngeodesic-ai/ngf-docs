@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Domains &mdash; ngeodesic.ai 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ngeodesic Python Package" href="ngeodesic_package.html" />
+    <link rel="prev" title="Publications &amp; Patents" href="../research/publications_patents.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #283D5F" >
+            <a href="../index.html" class="icon icon-home"> ngeodesic.ai
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/micro_lms.html">Micro-LMs Explained</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/ngf_rails.html">Warp → Detect → Denoise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/determinism_abstains.html">Determinism &amp; Abstains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/tiers.html">Tiers 1-3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Research</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../research/ngf.html">Noetic Geodesic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/current_threads.html">Current Research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/experiments.html">NGF-Alpha Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/publications_patents.html">Publications &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Framework</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Domains</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arc-micro-lm-reasoning-stress-test">ARC Micro-LM (Reasoning Stress Test)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defi-micro-lm-finance-primitives">DeFi Micro-LM (Finance Primitives)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cross-domain-potential">Cross-Domain Potential</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ngeodesic_package.html">ngeodesic Python Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_verifiers.html">Policy &amp; Verifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stage11_rails.html">Stage-11 Rails in Detail</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/repository_structure.html">Repository Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/cli_usage.html">CLI Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/benchmarks.html">Testing &amp; Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/integration_ngeodesic.html">Integration with ngeodesic</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #283D5F" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ngeodesic.ai</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Domains</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/framework/micro_lm_package.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="domains">
+<span id="id1"></span><h1>Domains<a class="headerlink" href="#domains" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Micro‑LMs are <strong>domain‑specialized sidecars</strong> that apply NGF rails to enforce
+deterministic, auditable reasoning. We pilot them in two domains:</p>
+<ol class="arabic simple">
+<li><p><strong>ARC Micro‑LM</strong> — reasoning stress test.</p></li>
+<li><p><strong>DeFi Micro‑LM</strong> — applied financial primitives.</p></li>
+</ol>
+<p>These serve as complementary proofs: ARC highlights reasoning power, while DeFi
+demonstrates real‑world applicability.</p>
+</section>
+<section id="arc-micro-lm-reasoning-stress-test">
+<h2>ARC Micro-LM (Reasoning Stress Test)<a class="headerlink" href="#arc-micro-lm-reasoning-stress-test" title="Link to this heading"></a></h2>
+<p>The <strong>ARC (Abstraction &amp; Reasoning Corpus)</strong> domain provides a rigorous aptitude
+benchmark where conventional LLMs often fail. ARC requires compositional
+generalization over small grid transformations such as rotations and flips.</p>
+<ul class="simple">
+<li><p><strong>Canonical primitives:</strong> <code class="docutils literal notranslate"><span class="pre">rotate</span></code>, <code class="docutils literal notranslate"><span class="pre">flip_h</span></code>, <code class="docutils literal notranslate"><span class="pre">flip_v</span></code> 【204†ARC_INTERFACE.md】.</p></li>
+<li><p><strong>Pipeline:</strong> Prompts + grids → mapper (ARC joblib) → NGF rails (Warp–Detect–Denoise).</p></li>
+<li><p><strong>Modes:</strong>
+- <em>Tier‑1:</em> mapper audit only (confidence thresholds).
+- <em>Tier‑2:</em> WDD detector audit (mapper still authoritative).
+- <em>Tier‑2 family:</em> WDD supplies the primitive order.</p></li>
+<li><p><strong>Output:</strong> Structured plan with audit tags; abstains if ambiguous or off‑manifold.</p></li>
+</ul>
+<p>ARC is used as a <strong>stress test</strong> to highlight NGF’s ability to produce
+deterministic traces even in reasoning‑heavy tasks 【206†README.md】.</p>
+</section>
+<section id="defi-micro-lm-finance-primitives">
+<h2>DeFi Micro-LM (Finance Primitives)<a class="headerlink" href="#defi-micro-lm-finance-primitives" title="Link to this heading"></a></h2>
+<p>The <strong>DeFi domain</strong> is a business‑style usecase: mapping prompts about
+decentralized finance into safe, auditable primitives.</p>
+<ul class="simple">
+<li><p><strong>Canonical primitives:</strong> <code class="docutils literal notranslate"><span class="pre">deposit_asset</span></code>, <code class="docutils literal notranslate"><span class="pre">swap_asset</span></code>, <code class="docutils literal notranslate"><span class="pre">withdraw_asset</span></code>,
+<code class="docutils literal notranslate"><span class="pre">borrow_asset</span></code>, <code class="docutils literal notranslate"><span class="pre">repay_asset</span></code>, <code class="docutils literal notranslate"><span class="pre">stake_asset</span></code>, <code class="docutils literal notranslate"><span class="pre">unstake_asset</span></code>,
+<code class="docutils literal notranslate"><span class="pre">claim_rewards</span></code> 【203†DEFI_INTERFACE.md】.</p></li>
+<li><p><strong>Pipeline:</strong> Prompts → SBERT mapper → NGF rails (Stage‑11).</p></li>
+<li><p><strong>Verifiers:</strong> Policy‑driven checks: Loan‑to‑Value (LTV), Health Factor (HF),
+Oracle freshness. Unsafe operations → block or abstain.</p></li>
+<li><p><strong>Modes:</strong>
+- <em>Tier‑1:</em> mapper + confidence threshold + policy verifiers.
+- <em>Tier‑2:</em> WDD audit (detector or family).</p></li>
+</ul>
+<p>Benchmarks show &gt;98% accuracy on 8 primitives with principled abstains
+【205†SBERT.md】【206†README.md】.</p>
+</section>
+<section id="cross-domain-potential">
+<h2>Cross-Domain Potential<a class="headerlink" href="#cross-domain-potential" title="Link to this heading"></a></h2>
+<p>NGF rails and the Micro‑LM architecture generalize beyond ARC and DeFi:</p>
+<ul class="simple">
+<li><p><strong>Healthcare:</strong> map clinical notes → structured medical orders, with dosage
+verifiers and drug‑interaction checks.</p></li>
+<li><p><strong>Manufacturing &amp; Robotics:</strong> map operator prompts → deterministic motion plans,
+with collision checks and torque limits.</p></li>
+<li><p><strong>Supply Chain:</strong> convert planning instructions → deterministic workflows, with
+capacity and customs verifiers.</p></li>
+<li><p><strong>Energy &amp; Grid:</strong> map operator commands → safe dispatch actions, with load
+balancing verifiers.</p></li>
+<li><p><strong>Legal &amp; Contracts:</strong> parse clauses → compliance checks, with regulatory
+verifiers and abstain when ambiguous.</p></li>
+</ul>
+<p>This cross‑domain flexibility shows that Micro‑LMs are not tied to one vertical,
+but provide a <strong>general recipe for safe deterministic reasoning</strong>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../research/publications_patents.html" class="btn btn-neutral float-left" title="Publications &amp; Patents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ngeodesic_package.html" class="btn btn-neutral float-right" title="ngeodesic Python Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

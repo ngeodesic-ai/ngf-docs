@@ -28,4 +28,46 @@ this guide will help you get started quickly.
     Home <self>      
     installation
     quickstart
+    roadmap
     legal
+
+.. toctree::
+    :maxdepth: 3
+    :hidden:
+    :caption: Concepts
+
+    concepts/micro_lms
+    concepts/ngf_rails
+    concepts/determinism_abstains
+    concepts/tiers
+
+.. toctree::
+    :maxdepth: 3
+    :hidden:
+    :caption: Research
+
+    research/ngf
+    research/current_threads
+    research/experiments
+    research/publications_patents
+
+.. toctree::
+    :maxdepth: 3
+    :hidden:
+    :caption: Framework
+
+    framework/micro_lm_package
+    framework/ngeodesic_package
+    framework/policy_verifiers
+    framework/stage11_rails
+
+.. toctree::
+    :maxdepth: 3
+    :hidden:
+    :caption: Engineering
+
+    engineering/repository_structure
+    engineering/cli_usage
+    engineering/benchmarks
+    engineering/integration_ngeodesic
+

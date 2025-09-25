@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NGF-Alpha Experiments &mdash; ngeodesic.ai 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Publications &amp; Patents" href="publications_patents.html" />
+    <link rel="prev" title="Current Research" href="current_threads.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #283D5F" >
+            <a href="../index.html" class="icon icon-home"> ngeodesic.ai
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/micro_lms.html">Micro-LMs Explained</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/ngf_rails.html">Warp → Detect → Denoise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/determinism_abstains.html">Determinism &amp; Abstains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/tiers.html">Tiers 1-3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Research</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ngf.html">Noetic Geodesic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="current_threads.html">Current Research</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NGF-Alpha Experiments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#early-prototypes">Early Prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-results-micro-lms">Key Results → Micro-LMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pointers-further-reading">Pointers &amp; Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publications_patents.html">Publications &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../framework/micro_lm_package.html">Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/ngeodesic_package.html">ngeodesic Python Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/policy_verifiers.html">Policy &amp; Verifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/stage11_rails.html">Stage-11 Rails in Detail</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/repository_structure.html">Repository Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/cli_usage.html">CLI Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/benchmarks.html">Testing &amp; Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/integration_ngeodesic.html">Integration with ngeodesic</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #283D5F" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ngeodesic.ai</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>NGF-Alpha Experiments</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/research/experiments.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ngf-alpha-experiments">
+<span id="research-ngf-alpha-experiments"></span><h1>NGF-Alpha Experiments<a class="headerlink" href="#ngf-alpha-experiments" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p><strong>ngf-alpha</strong> was the first research repository for exploring the <strong>Noetic Geodesic
+Framework (NGF)</strong>. It documented staged experiments that tested whether latent
+manifolds could be warped, detected, and denoised to produce <strong>deterministic,
+reproducible reasoning</strong>.</p>
+<p>The staged design allowed systematic exploration from toy settings to real latent
+spaces, gradually validating the Warp–Detect–Denoise (WDD) doctrine.</p>
+</section>
+<section id="early-prototypes">
+<h2>Early Prototypes<a class="headerlink" href="#early-prototypes" title="Link to this heading"></a></h2>
+<ul>
+<li><p><strong>Stage 0–3 (Toy Spaces):</strong>
+- Operated in simple vector spaces (<span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>, <span class="math notranslate nohighlight">\(\mathbb{R}^9\)</span>).
+- Tested geodesic shaping in low dimensions.
+- Showed that introducing <em>semantic wells</em> could reduce trajectory variance.</p></li>
+<li><p><strong>Stage 4–6 (Synthetic Trace Families):</strong>
+- Applied WDD logic to synthetic ARC‑like traces.
+- Proved that matched filters with nulls/foils could separate valid routes</p>
+<blockquote>
+<div><p>from noise.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Early use of temporal smoothing to reduce decision instability.</p></li>
+</ul>
+</li>
+<li><p><strong>Stage 7–9 (Noisy External Latents):</strong>
+- Integrated SBERT embeddings and LLM hidden states.
+- Demonstrated that warp alignment + detection thresholds could <strong>stabilize</strong></p>
+<blockquote>
+<div><p>mappings from NL prompts → task primitives.</p>
+</div></blockquote>
+</li>
+<li><p><strong>Stage 10–11 (Full NGF Rails):</strong>
+- Introduced the canonical Warp → Detect → Denoise sequence.
+- Benchmarked robustness under perturbations (synonyms, paraphrases, jitter).
+- Validated <strong>abstain logic</strong> as a principled alternative to misclassification.</p></li>
+</ul>
+</section>
+<section id="key-results-micro-lms">
+<h2>Key Results → Micro-LMs<a class="headerlink" href="#key-results-micro-lms" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>WDD Works in Practice</strong>
+The staged experiments confirmed that WDD reliably improved reproducibility,
+separation, and robustness. This validated NGF as more than theory—it was
+a working framework.</p></li>
+<li><p><strong>Deterministic Traces</strong>
+By Stage‑11, identical prompts produced <strong>identical traces and outcomes</strong>
+across runs, a property absent in baseline models.</p></li>
+<li><p><strong>Principled Abstains</strong>
+Experiments showed that ambiguity could be detected geometrically—when wells
+overlapped or margins were thin, abstains were triggered instead of guesses.</p></li>
+<li><p><strong>Blueprint for Sidecars</strong>
+The insights from ngf‑alpha directly inspired <strong>Micro‑LMs</strong>: lightweight,
+domain‑specific reasoning sidecars that use NGF rails to map intent to
+primitives under verifiers.</p>
+<ul class="simple">
+<li><p><strong>ARC Micro‑LM</strong> became the reasoning stress test.</p></li>
+<li><p><strong>DeFi Micro‑LM</strong> became the production‑style demo with policy checks.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="pointers-further-reading">
+<h2>Pointers &amp; Further Reading<a class="headerlink" href="#pointers-further-reading" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>See the <cite>ngf-alpha</cite> repository for full experimental logs and staged designs.</p></li>
+<li><p>Stage‑11 experiments are particularly important: they introduced canonical
+WDD rails and proved abstain determinism.</p></li>
+<li><p>For patent coverage, see <strong>Warp–Detect–Denoise</strong>, <strong>Micro‑LM sidecars</strong>, and
+<strong>trace manifold shaping</strong> filings.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="current_threads.html" class="btn btn-neutral float-left" title="Current Research" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="publications_patents.html" class="btn btn-neutral float-right" title="Publications &amp; Patents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

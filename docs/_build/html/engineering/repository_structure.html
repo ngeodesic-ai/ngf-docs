@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repository Structure &mdash; ngeodesic.ai 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CLI Usage" href="cli_usage.html" />
+    <link rel="prev" title="Stage-11 Rails in Detail" href="../framework/stage11_rails.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #283D5F" >
+            <a href="../index.html" class="icon icon-home"> ngeodesic.ai
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/micro_lms.html">Micro-LMs Explained</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/ngf_rails.html">Warp → Detect → Denoise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/determinism_abstains.html">Determinism &amp; Abstains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/tiers.html">Tiers 1-3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Research</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../research/ngf.html">Noetic Geodesic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/current_threads.html">Current Research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/experiments.html">NGF-Alpha Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/publications_patents.html">Publications &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../framework/micro_lm_package.html">Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/ngeodesic_package.html">ngeodesic Python Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/policy_verifiers.html">Policy &amp; Verifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/stage11_rails.html">Stage-11 Rails in Detail</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Repository Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ngf-alpha-research">ngf-alpha (Research)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ngeodesic-science">ngeodesic (Science)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#micro-lm-product-line">micro-lm (Product Line)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cross-repo-flow">Cross-Repo Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli_usage.html">CLI Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Testing &amp; Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration_ngeodesic.html">Integration with ngeodesic</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #283D5F" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ngeodesic.ai</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Repository Structure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/repository_structure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="repository-structure">
+<span id="engineering-repository-structure"></span><h1>Repository Structure<a class="headerlink" href="#repository-structure" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The NGF ecosystem is organized into three main repositories, each with a distinct role:</p>
+<ol class="arabic simple">
+<li><p><strong>ngf-alpha</strong> → research prototypes and staged experiments.</p></li>
+<li><p><strong>ngeodesic</strong> → the production-ready Python package implementing NGF rails.</p></li>
+<li><p><strong>micro-lm</strong> → domain-specific micro‑LM applications built on top of ngeodesic.</p></li>
+</ol>
+<p>This layered structure ensures a clean separation between <strong>theory, framework, and product</strong>.</p>
+</section>
+<section id="ngf-alpha-research">
+<h2>ngf-alpha (Research)<a class="headerlink" href="#ngf-alpha-research" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Repository: <a class="reference external" href="https://github.com/ngeodesic-ai/ngf-alpha">https://github.com/ngeodesic-ai/ngf-alpha</a></p></li>
+<li><p>Purpose: experimental log of the <strong>Noetic Geodesic Framework (NGF)</strong>.</p></li>
+<li><p>Content: staged experiments from toy latent spaces to real embeddings.</p></li>
+<li><p>Key contribution: crystallized the <strong>Warp → Detect → Denoise (WDD)</strong> doctrine.</p></li>
+<li><p>Outcome: validated NGF as a viable method for deterministic reasoning.</p></li>
+</ul>
+</section>
+<section id="ngeodesic-science">
+<h2>ngeodesic (Science)<a class="headerlink" href="#ngeodesic-science" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Repository: <a class="reference external" href="https://github.com/ngeodesic-ai/ngeodesic">https://github.com/ngeodesic-ai/ngeodesic</a></p></li>
+<li><p>Purpose: implements NGF rails in a reusable, domain‑agnostic package.</p></li>
+<li><p>Key features:
+- <strong>Warp:</strong> PCA projection, funnel profiles, semantic well shaping.
+- <strong>Detect:</strong> matched filters, null/foil separation, margin thresholds.
+- <strong>Denoise:</strong> EMA+median smoothing, phantom guards, jitter averaging.
+- <strong>Parser API:</strong> stock parsers + Stage‑11 geodesic parser.</p></li>
+<li><p>Provides the rails and utilities for downstream micro‑LMs.</p></li>
+</ul>
+</section>
+<section id="micro-lm-product-line">
+<h2>micro-lm (Product Line)<a class="headerlink" href="#micro-lm-product-line" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Repository: <a class="reference external" href="https://github.com/ngeodesic-ai/micro-lm">https://github.com/ngeodesic-ai/micro-lm</a></p></li>
+<li><p>Purpose: applies NGF rails to build <strong>deterministic, domain‑specific sidecars</strong>.</p></li>
+<li><p>Domains:
+- <strong>DeFi Micro‑LM:</strong> maps finance prompts → primitives with LTV/HF/oracle verifiers.
+- <strong>ARC Micro‑LM:</strong> stress‑tests reasoning on grid transformations.</p></li>
+<li><p>Architecture (Tier‑1) 【232†OVERVIEW.md】:
+- <strong>Adapters:</strong> normalize context (JSON → schema).
+- <strong>Mapper:</strong> SBERT/wordmap classifiers.
+- <strong>Verifier:</strong> domain policy checks.
+- <strong>Planner:</strong> expands intent into structured plans.
+- <strong>Harness:</strong> runs deterministically on Stage‑11 NGF rails.</p></li>
+<li><p>Tier‑2 refactor 【231†TIER2.md】: introduces WDD auditors for latent separation.</p></li>
+</ul>
+</section>
+<section id="cross-repo-flow">
+<h2>Cross-Repo Flow<a class="headerlink" href="#cross-repo-flow" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>ngf-alpha</strong> proves the theory (WDD rails, abstain logic).</p></li>
+<li><p><strong>ngeodesic</strong> packages it as a stable Python library.</p></li>
+<li><p><strong>micro-lm</strong> consumes ngeodesic to deliver applied products (ARC, DeFi).</p></li>
+</ol>
+<p>This flow mirrors a traditional R&amp;D pipeline: <strong>Research → Engineering → Product</strong>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../framework/stage11_rails.html" class="btn btn-neutral float-left" title="Stage-11 Rails in Detail" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cli_usage.html" class="btn btn-neutral float-right" title="CLI Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

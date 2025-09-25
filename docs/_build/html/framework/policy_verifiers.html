@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Policy &amp; Verifiers &mdash; ngeodesic.ai 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Stage-11 Rails in Detail" href="stage11_rails.html" />
+    <link rel="prev" title="ngeodesic Python Package" href="ngeodesic_package.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #283D5F" >
+            <a href="../index.html" class="icon icon-home"> ngeodesic.ai
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/micro_lms.html">Micro-LMs Explained</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/ngf_rails.html">Warp → Detect → Denoise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/determinism_abstains.html">Determinism &amp; Abstains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/tiers.html">Tiers 1-3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Research</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../research/ngf.html">Noetic Geodesic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/current_threads.html">Current Research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/experiments.html">NGF-Alpha Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/publications_patents.html">Publications &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Framework</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="micro_lm_package.html">Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ngeodesic_package.html">ngeodesic Python Package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Policy &amp; Verifiers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defi-verifiers">DeFi Verifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arc-verifiers">ARC Verifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#audit-vs-mapper">Audit vs Mapper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stage11_rails.html">Stage-11 Rails in Detail</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/repository_structure.html">Repository Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/cli_usage.html">CLI Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/benchmarks.html">Testing &amp; Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/integration_ngeodesic.html">Integration with ngeodesic</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #283D5F" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ngeodesic.ai</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Policy &amp; Verifiers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/framework/policy_verifiers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="policy-verifiers">
+<span id="framework-policy-verifiers"></span><h1>Policy &amp; Verifiers<a class="headerlink" href="#policy-verifiers" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Beyond NGF rails, <strong>policy checks and verifiers</strong> are applied to ensure
+safe execution in domain‑specific micro‑LMs. These verifiers enforce
+rules and block unsafe actions.</p>
+</section>
+<section id="defi-verifiers">
+<h2>DeFi Verifiers<a class="headerlink" href="#defi-verifiers" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Loan‑to‑Value (LTV):</strong> block if collateral ratio exceeds threshold.</p></li>
+<li><p><strong>Health Factor (HF):</strong> block if health factor &lt; floor.</p></li>
+<li><p><strong>Oracle freshness:</strong> block if price feed is stale.</p></li>
+<li><p><strong>Slippage bounds:</strong> block unsafe swap parameters.</p></li>
+</ul>
+</section>
+<section id="arc-verifiers">
+<h2>ARC Verifiers<a class="headerlink" href="#arc-verifiers" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Schema compliance:</strong> ensure trace follows allowed primitive order.</p></li>
+<li><p><strong>Ambiguity reduction:</strong> abstain if multiple primitives are equally plausible.</p></li>
+<li><p><strong>Input/output sanity:</strong> validate grids are transformed correctly.</p></li>
+</ul>
+</section>
+<section id="audit-vs-mapper">
+<h2>Audit vs Mapper<a class="headerlink" href="#audit-vs-mapper" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Mapper:</strong> proposes candidate primitive.</p></li>
+<li><p><strong>Audit:</strong> applies NGF rails (WDD) + verifiers to accept or abstain.</p></li>
+<li><p><strong>Policy checks:</strong> final gating layer (e.g., LTV, HF).</p></li>
+</ul>
+<p>Together, mapper + rails + verifiers produce <strong>deterministic,
+auditable, safe plans</strong>. 【203†DEFI_INTERFACE.md】【204†ARC_INTERFACE.md】</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ngeodesic_package.html" class="btn btn-neutral float-left" title="ngeodesic Python Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stage11_rails.html" class="btn btn-neutral float-right" title="Stage-11 Rails in Detail" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

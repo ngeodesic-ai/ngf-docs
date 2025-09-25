@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warp → Detect → Denoise &mdash; ngeodesic.ai 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Determinism &amp; Abstains" href="determinism_abstains.html" />
+    <link rel="prev" title="Micro-LMs Explained" href="micro_lms.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #283D5F" >
+            <a href="../index.html" class="icon icon-home"> ngeodesic.ai
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="micro_lms.html">Micro-LMs Explained</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Warp → Detect → Denoise</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#warp">1) Warp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#detect">2) Detect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#denoise">3) Denoise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verify">4) Verify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-goals">Design Goals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="determinism_abstains.html">Determinism &amp; Abstains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tiers.html">Tiers 1-3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Research</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../research/ngf.html">Noetic Geodesic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/current_threads.html">Current Research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/experiments.html">NGF-Alpha Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/publications_patents.html">Publications &amp; Patents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../framework/micro_lm_package.html">Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/ngeodesic_package.html">ngeodesic Python Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/policy_verifiers.html">Policy &amp; Verifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework/stage11_rails.html">Stage-11 Rails in Detail</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Engineering</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/repository_structure.html">Repository Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/cli_usage.html">CLI Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/benchmarks.html">Testing &amp; Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../engineering/integration_ngeodesic.html">Integration with ngeodesic</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #283D5F" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ngeodesic.ai</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Warp → Detect → Denoise</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/concepts/ngf_rails.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="warp-detect-denoise">
+<span id="concepts-ngf-rails"></span><h1>Warp → Detect → Denoise<a class="headerlink" href="#warp-detect-denoise" title="Link to this heading"></a></h1>
+<p><strong>NGF rails</strong> implement the <strong>WDD</strong> pipeline to stabilize decisions and enforce safety.</p>
+<section id="warp">
+<h2>1) Warp<a class="headerlink" href="#warp" title="Link to this heading"></a></h2>
+<p>Align raw latents or traces into a structured manifold where task-relevant geometry
+is separable (e.g., bringing related prompts closer and off-task noise farther).</p>
+</section>
+<section id="detect">
+<h2>2) Detect<a class="headerlink" href="#detect" title="Link to this heading"></a></h2>
+<p>Identify signal vs. off-manifold noise. This is where routing and “keep/foil”
+choices are made to preserve plausible options while filtering out mismatches.</p>
+</section>
+<section id="denoise">
+<h2>3) Denoise<a class="headerlink" href="#denoise" title="Link to this heading"></a></h2>
+<p>Reduce residual noise to improve <strong>reproducibility</strong> and <strong>margin</strong> between classes.
+This increases stability under prompt perturbations and small context changes.</p>
+</section>
+<section id="verify">
+<h2>4) Verify<a class="headerlink" href="#verify" title="Link to this heading"></a></h2>
+<p>Policy-layer checks before execution. Examples:
+- <strong>DeFi:</strong> LTV/HF thresholds, oracle freshness, slippage bounds.
+- <strong>ARC:</strong> Operation plausibility, ambiguity reduction.</p>
+</section>
+<section id="design-goals">
+<h2>Design Goals<a class="headerlink" href="#design-goals" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Deterministic traces.</strong></p></li>
+<li><p><strong>Separation:</strong> preserve correct routes; suppress foils.</p></li>
+<li><p><strong>Abstain when unsure:</strong> fail-safe before execution.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="micro_lms.html" class="btn btn-neutral float-left" title="Micro-LMs Explained" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="determinism_abstains.html" class="btn btn-neutral float-right" title="Determinism &amp; Abstains" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
