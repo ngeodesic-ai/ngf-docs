@@ -3,14 +3,14 @@
 Introduction
 ==============================
 
-Ngeodesic provides safety guardrails for AI with enhanced performance. Our Micro-LM sidecars act as a **Layer 2 for AI**: improving efficiency and reliability, enforcing determinism, auditability, and compliance — all while letting large language models remain fluent and flexible. For GitHub repos, you can visit:
+Ngeodesic provides safety guardrails for AI with enhanced performance. Our Micro-LM (micro language model) sidecars act as a **Layer 2 for AI**: improving efficiency and reliability, enforcing determinism, auditability, and compliance — all while letting large language models remain fluent and flexible. For GitHub repos, you can visit:
 
 * `NGF Research <https://github.com/ngeodesic-ai/ngf-alpha>`_
 * `micro-LM <https://github.com/ngeodesic-ai/micro-lm>`_
 
 Warp->Detect->Denoise (WDD)
 -------------------------------
-Warp → Detect → Denoise (WDD) is a patented pipeline for making noisy latent spaces deterministic and auditable. It first warps embeddings into a stable geometry, then detects true signals with calibrated filters, and finally denoises phantom attractors. The result: reproducible PASS/ABSTAIN decisions with clear traces — turning stochastic LLM outputs into predictable, safe, enterprise-grade behavior.
+Warp → Detect → Denoise (WDD) is a patented pipeline for making noisy latent spaces deterministic and auditable. It first warps embeddings into a stable geometry, then detects true signals with calibrated filters, and finally denoises phantom attractors. The result: reproducible PASS/ABSTAIN decisions with clear traces — turning stochastic LLM (large language model) outputs into predictable, safe, enterprise-grade behavior.
 
 .. image:: /_static/ngf_warped_geodesic_contour.gif
    :alt: NGF Warped vs Flat Paths
