@@ -55,6 +55,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmarks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#part-a-latent-arc-results-n-100">(Part A) Latent-ARC Results (n=100)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#part-b-lmm-hellaswag-results-n-1000">(Part B) LMM-HellaSwag Results (n=1000)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#part-c-tier-1-micro-lm-sidecar-benchmarks-sbert-n-750">(Part C) Tier-1 micro-LM Sidecar Benchmarks (SBERT, n = 750)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#part-d-tier-2-micro-lm-sidecar-benchmarks-wdd-sbert-n-750-coming">(Part D) Tier-2 micro-LM Sidecar Benchmarks (WDD + SBERT, n = 750, <strong>coming</strong>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#key-results-micro-lms">Key Results → Micro-LMs</a></li>
 </ul>
 </li>
@@ -101,6 +103,7 @@
 </ul>
 <section id="part-a-latent-arc-results-n-100">
 <h2>(Part A) Latent-ARC Results (n=100)<a class="headerlink" href="#part-a-latent-arc-results-n-100" title="Link to this heading"></a></h2>
+<p>This benchmark evaluates the geometric WDD pipeline (Warp → Detect → Denoise) on synthetic ARC-like tasks. Instead of using raw pixel grids, problems are projected into a latent space where ARC transformations (flip, rotate, color swap, etc.) are simulated. The goal is to stress-test whether warped semantic manifolds can preserve task structure and recover the correct primitive sequence. In short: it’s a sandbox for testing ARC-style reasoning in latent space, validating that WDD can generalize without hallucination.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
@@ -144,6 +147,7 @@ on LLM latents/logits without NGF’s Warp → Detect → Denoise.</p>
 </section>
 <section id="part-b-lmm-hellaswag-results-n-1000">
 <h2>(Part B) LMM-HellaSwag Results (n=1000)<a class="headerlink" href="#part-b-lmm-hellaswag-results-n-1000" title="Link to this heading"></a></h2>
+<p>This benchmark instruments a frozen GPT-2 small model, tapped nine layers from the output, to evaluate how well raw transformer latents support downstream WDD analysis. The idea is to test whether the geometry of pre-trained language model embeddings (without fine-tuning or training) already contains enough separability for stable warp–detect–denoise behavior. It’s a probe of “out-of-the-box” model latents to assess how much structure the sidecar can extract from a standard foundation model.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
@@ -181,6 +185,100 @@ on LLM latents/logits without NGF’s Warp → Detect → Denoise.</p>
 <p><span class="caption-text">Fig 1. PCA-2 visualization of “semantic wells” (pre vs post warp) on GPT-2 (tap 9).</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
+</section>
+<section id="part-c-tier-1-micro-lm-sidecar-benchmarks-sbert-n-750">
+<h2>(Part C) Tier-1 micro-LM Sidecar Benchmarks (SBERT, n = 750)<a class="headerlink" href="#part-c-tier-1-micro-lm-sidecar-benchmarks-sbert-n-750" title="Link to this heading"></a></h2>
+<p>This benchmark runs the Tier-1 micro-lm pipeline using SBERT latents (MiniLM-L6-v2) as input. Prompts from DeFi and ARC domains are parsed through the sidecar to yield deterministic PASS / ABSTAIN / REJECT verdicts, with coverage, abstain, and hallucination rates logged. This is the first reproducible production-grade benchmark for the micro-lm sidecar, showing ~94–95% coverage with hallucination suppressed to ~1–2%. It serves as the reference “community edition” baseline for ngeodesic.ai.</p>
+<p><strong>Aggregate</strong>
+- Coverage: <strong>94.5%</strong> (95% CI <strong>92.7–95.9%</strong>)
+- Abstain: <strong>5.5%</strong>
+- Hallucination: <strong>1.7%</strong> (95% CI <strong>1.0–2.9%</strong>)
+- Multi-accept: <strong>46.3%</strong>
+- Span yield: <strong>100%</strong></p>
+<p><strong>Per-primitive (with 95% Wilson CIs)</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Primitive</p></th>
+<th class="head"><p>n</p></th>
+<th class="head"><p>Coverage</p></th>
+<th class="head"><p>95% CI</p></th>
+<th class="head"><p>Hallucination</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>borrow_asset</p></td>
+<td><p>78</p></td>
+<td><p>100.0%</p></td>
+<td><p>95.3% – 100.0%</p></td>
+<td><p>0.0%</p></td>
+<td><p>Strong</p></td>
+</tr>
+<tr class="row-odd"><td><p>claim_rewards</p></td>
+<td><p>111</p></td>
+<td><p>100.0%</p></td>
+<td><p>96.7% – 100.0%</p></td>
+<td><p>0.0%</p></td>
+<td><p>Strong</p></td>
+</tr>
+<tr class="row-even"><td><p>deposit_asset</p></td>
+<td><p>105</p></td>
+<td><p>92.4%</p></td>
+<td><p>85.7% – 96.1%</p></td>
+<td><p>1.0%</p></td>
+<td><p>Slightly lower</p></td>
+</tr>
+<tr class="row-odd"><td><p>repay_asset</p></td>
+<td><p>98</p></td>
+<td><p>100.0%</p></td>
+<td><p>96.2% – 100.0%</p></td>
+<td><p>0.0%</p></td>
+<td><p>Strong</p></td>
+</tr>
+<tr class="row-even"><td><p>stake_asset</p></td>
+<td><p>99</p></td>
+<td><p>100.0%</p></td>
+<td><p>96.3% – 100.0%</p></td>
+<td><p>0.0%</p></td>
+<td><p>Strong</p></td>
+</tr>
+<tr class="row-odd"><td><p>swap_asset</p></td>
+<td><p>82</p></td>
+<td><p>100.0%</p></td>
+<td><p>95.5% – 100.0%</p></td>
+<td><p>0.0%</p></td>
+<td><p>Strong</p></td>
+</tr>
+<tr class="row-even"><td><p>unstake_asset</p></td>
+<td><p>85</p></td>
+<td><p>100.0%</p></td>
+<td><p>95.7% – 100.0%</p></td>
+<td><p>0.0%</p></td>
+<td><p>Strong</p></td>
+</tr>
+<tr class="row-odd"><td><p>withdraw_asset</p></td>
+<td><p>92</p></td>
+<td><p>64.1%</p></td>
+<td><p>53.9% – 73.2%</p></td>
+<td><p>4.3%</p></td>
+<td><p><strong>Tuning underway</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Setup</strong>: SBERT <cite>sentence-transformers/all-MiniLM-L6-v2</cite>; thresholds <cite>tau_span=0.5</cite>, <cite>tau_rel=0.6</cite>, <cite>tau_abs=0.93</cite>; <cite>n_max=4</cite>, <cite>topk=3</cite>; <cite>T=720</cite>, <cite>L=160</cite>, <cite>beta=8.6</cite>, <cite>sigma=0.0</cite>.</p>
+<p><strong>Definition notes</strong>: <em>Coverage</em> = correct PASS on in-scope primitive; <em>Abstain</em> = ABSTAIN when ambiguous; <em>Hallucination</em> = confident wrong PASS; <em>Span yield</em> = share of predictions with grounded spans.</p>
+</section>
+<section id="part-d-tier-2-micro-lm-sidecar-benchmarks-wdd-sbert-n-750-coming">
+<h2>(Part D) Tier-2 micro-LM Sidecar Benchmarks (WDD + SBERT, n = 750, <strong>coming</strong>)<a class="headerlink" href="#part-d-tier-2-micro-lm-sidecar-benchmarks-wdd-sbert-n-750-coming" title="Link to this heading"></a></h2>
+<p>This benchmark extends the Tier-1 setup by fully integrating the WDD audit layer (Warp → Detect → Denoise) on top of SBERT latents. Whereas Tier-1 establishes deterministic single-primitive verdicts, Tier-2 stress-tests multi-primitive sequences (e.g. rotate → flip → swap) and evaluates whether the sidecar maintains low hallucination rates under compositional load. Early runs on 20–25 sample prompts show stable performance and safe abstentions, with the full benchmark suite (n ≈ 500+) slated next. This milestone demonstrates how micro-lm scales from primitive-level correctness to sequence-level reasoning, validating the geometry-first audit pipeline in higher-complexity domains.</p>
+<p><strong>Metric Definitions</strong></p>
+<ul class="simple">
+<li><p><strong>Coverage</strong> → % of prompts where the sidecar returned the correct primitive (PASS).</p></li>
+<li><p><strong>Abstain</strong> → % of prompts where the sidecar explicitly declined to guess (ABSTAIN).</p></li>
+<li><p><strong>Hallucination</strong> → % of prompts where the sidecar produced a confident but wrong PASS verdict.</p></li>
+<li><p><strong>Multi-accept</strong> → % of prompts where the sidecar marked <strong>more than one parse as valid</strong> (e.g., a prompt could map to both <cite>unstake_asset</cite> and <cite>withdraw_asset</cite>).</p></li>
+<li><p><strong>Span yield</strong> → % of predictions where the model produced grounded spans (inputs/outputs aligned to canonical tokens).</p></li>
+</ul>
 </section>
 <section id="key-results-micro-lms">
 <h2>Key Results → Micro-LMs<a class="headerlink" href="#key-results-micro-lms" title="Link to this heading"></a></h2>

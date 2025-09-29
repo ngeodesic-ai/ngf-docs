@@ -48,10 +48,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="micro_lms.html">Micro-LMs</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Deterministic AI Reasoning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#warp">1) Warp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#detect">2) Detect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#denoise">3) Denoise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#verify">4) Verify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#warp">Warp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#detect">Detect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#denoise">Denoise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verify">Verify</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#design-goals">Design Goals</a></li>
 </ul>
 </li>
@@ -97,25 +97,28 @@
 <span id="concepts-ngf-rails"></span><h1>Deterministic AI Reasoning<a class="headerlink" href="#deterministic-ai-reasoning" title="Link to this heading"></a></h1>
 <p><strong>NGF rails</strong> implement the <strong>WDD</strong> pipeline to stabilize decisions and enforce safety.</p>
 <section id="warp">
-<h2>1) Warp<a class="headerlink" href="#warp" title="Link to this heading"></a></h2>
-<p>Align raw latents or traces into a structured manifold where task-relevant geometry
-is separable (e.g., bringing related prompts closer and off-task noise farther).</p>
+<h2>Warp<a class="headerlink" href="#warp" title="Link to this heading"></a></h2>
+<p>LLMs spread meaning across a vast, noisy latent space. <strong>Warping</strong> reshapes this space into a stable
+geometry — a funnel-like energy landscape where valid solutions settle naturally into a single well.
+This ensures reasoning trajectories are attracted to truth-aligned basins instead of drifting.</p>
 </section>
 <section id="detect">
-<h2>2) Detect<a class="headerlink" href="#detect" title="Link to this heading"></a></h2>
-<p>Identify signal vs. off-manifold noise. This is where routing and “keep/foil”
-choices are made to preserve plausible options while filtering out mismatches.</p>
+<h2>Detect<a class="headerlink" href="#detect" title="Link to this heading"></a></h2>
+<p>Once warped, the sidecar applies <strong>matched filtering</strong> to separate genuine signals from noise.
+Two thresholds are applied: one relative (to catch strong local wells) and one calibrated against
+a null model (to reject phantoms). This lets the system PASS only when a stable solution is present.</p>
 </section>
 <section id="denoise">
-<h2>3) Denoise<a class="headerlink" href="#denoise" title="Link to this heading"></a></h2>
-<p>Reduce residual noise to improve <strong>reproducibility</strong> and <strong>margin</strong> between classes.
-This increases stability under prompt perturbations and small context changes.</p>
+<h2>Denoise<a class="headerlink" href="#denoise" title="Link to this heading"></a></h2>
+<p><strong>Denoising</strong> suppresses spurious or unstable wells that could masquerade as answers. Control guards
+are applied to prevent oscillation, collapse edge cases, and enforce consistency across reruns.
+The effect is clean, reproducible reasoning with phantom wells removed.</p>
 </section>
 <section id="verify">
-<h2>4) Verify<a class="headerlink" href="#verify" title="Link to this heading"></a></h2>
-<p>Policy-layer checks before execution. Examples:
-- <strong>DeFi:</strong> LTV/HF thresholds, oracle freshness, slippage bounds.
-- <strong>ARC:</strong> Operation plausibility, ambiguity reduction.</p>
+<h2>Verify<a class="headerlink" href="#verify" title="Link to this heading"></a></h2>
+<p>Every verdict is labeled as <strong>PASS, ABSTAIN, or REJECT</strong> with grounded spans. This creates a replayable
+audit trail: anyone can verify not just the answer, but the reasoning process that led to it.
+This verification step transforms black-box LLM outputs into auditable, deterministic rails.</p>
 </section>
 <section id="design-goals">
 <h2>Design Goals<a class="headerlink" href="#design-goals" title="Link to this heading"></a></h2>
